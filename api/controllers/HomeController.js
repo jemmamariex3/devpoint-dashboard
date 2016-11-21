@@ -8,6 +8,8 @@ var nodemailer = require('nodemailer');
 var db = require('node-localdb');
 var service = db('api/data/services.json');
 var gmailConfig = sails.config.gmail;
+var smtpConfig = sails.config.smtpGmail;
+var email_config = sails.config.email;
 
 var getUniqueCategories = function (portfolioArray) {
   var uniqueCategories = [];
@@ -36,13 +38,13 @@ module.exports = {
       res.send(u);
     });
   },
-  getAll: function(req, res){
-    service.find({}).then(function(data){
+  getAll: function (req, res) {
+    service.find({}).then(function (data) {
       res.send(data)
     })
   },
 
-  getEnv: function(req, res){
+  getEnv: function (req, res) {
     return res.json({
       email: gmailConfig.email,
       password: gmailConfig.password
@@ -91,40 +93,19 @@ module.exports = {
 
   contact: function (req, res) {
     var r = req.body;
-    var name = r.name;
-    var message = r.message;
-    var subject = r.subject;
-    var email = r.email;
-
-    var transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
-      auth: {
-        user: gmailConfig.email,
-        pass: gmailConfig.password
-      }
-    });
-
-// setup e-mail data with unicode symbols
-    var mailOptions = {
-      to: 'jonathan.arellano.216@gmail.com',
-      subject: 'New Potential Client',
-      //text: 'Hello world ?',
-      html: '<b>Subject: </b>' + subject + '<br>' +
-      '<b>Email: </b>' + email + '<br>' +
-      '<b>Name: </b>' + name + '<br>' +
-      '<b>Message: </b>' + message
+    var data = {
+      name: r.name,
+      message: r.message,
+      subject: r.subject,
+      email: r.email
     };
+    Mailer.contactMe(data);
+    res.json({
+      user: sails.config.email.auth.user,
+      password: sails.config.email.auth.pass
 
-// send mail with defined transport object
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        return console.log(error);
-      }
-      console.log('Message sent: ' + info.response);
-      res.send("Thank you for you message. I will get back to you as soon as possible.")
     });
-  }
+  },
+
 };
 
