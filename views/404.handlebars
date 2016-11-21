@@ -1,0 +1,33 @@
+<div class="container">
+    <section>
+        <div class="box">
+            <div class="ocean">
+                <img class="fishy" src="http://sailsjs.org/images/fishy4.png">
+            </div>
+
+            <div class="main">
+                <h1>
+                    Something's fishy here.
+                </h1>
+                <h2>
+                  {{#if error}}
+                    {{error}}
+                  {{else}}
+                      The page you were trying to reach doesn't exist.
+                  {{/if}}
+                </h2>
+                <p class="help">
+                    <a href="http://en.wikipedia.org/wiki/HTTP_404">Why</a> might this be happening?
+                </p>
+            </div>
+
+            <div class="logo">
+                <a href="http://sailsjs.org">
+                    <img src="http://sailsjs.org/images/logo.png">
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+</div>

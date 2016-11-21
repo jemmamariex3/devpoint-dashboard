@@ -1,0 +1,16 @@
+<div class="services-1">
+    <div class="row">
+      {{#each services}}
+          <div class="col-md-4 col-sm-6">
+              <div class="icon"><i class="{{this.icon}} icn"></i></div>
+              <!-- /.icon -->
+              <div class="text">
+                  <h5>{{this.title}}</h5>
+                  <p>{{this.description}}</p>
+              </div>
+              <!-- /.text -->
+          </div>
+      {{/each}}
+    </div>
+</div>
+<!-- /.services -->
