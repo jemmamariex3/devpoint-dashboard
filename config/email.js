@@ -5,7 +5,7 @@ module.exports.email = {
     pass: process.env.pass
   },
   templateDir: 'api/emailTemplates',
-  from: 'info@mycompany.com',
+  from: 'MyPortfolio',
   testMode: false,
   ssl: true
 };
