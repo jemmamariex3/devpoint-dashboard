@@ -1,6 +1,4 @@
 module.exports.contactMe = function (data) {
-  console.log(sails.hooks.email);
-
   sails.hooks.email.send(
     'contactMe',
     data,

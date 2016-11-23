@@ -7,6 +7,9 @@
               <div class="text">
                   <h5>{{this.title}}</h5>
                   <p>{{this.description}}</p>
+                {{#if ../admin}}
+                    <a href="/admin/deleteService/{{this._id}}">Delete</a>
+                {{/if}}
               </div>
               <!-- /.text -->
           </div>

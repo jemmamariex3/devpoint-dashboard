@@ -19,7 +19,7 @@ $(document).ready(function () {
 	/*-----------------------------------------------------------------------------------*/
 	/*	PRETTIFY
 	/*-----------------------------------------------------------------------------------*/
-    window.prettyPrint && prettyPrint()   
+    window.prettyPrint && prettyPrint()
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	SLIDER PRO
@@ -97,8 +97,8 @@ $( '.portfolio-slider' ).sliderPro({
             },
             buttons: false
         },
-		beforeLoad : function() {         
-            this.width  = parseInt(this.element.data('fancybox-width'), 10);  
+		beforeLoad : function() {
+            this.width  = parseInt(this.element.data('fancybox-width'), 10);
             this.height = parseInt(this.element.data('fancybox-height'), 10);
         }
 	});
@@ -209,8 +209,8 @@ jQuery(document).ready(function() {
 	header_height = jQuery('.navbar').height(),
 	navItems = jQuery('.navbar ul a[href^="#"]').not('.navbar ul a[href="#"], .navbar ul a.fancybox-inline');
 	jQuery('.offset').css('padding-top', header_height + 'px');
-	jQuery('.anchor').css('padding-top', shrinked_header_height + 'px');  
-	jQuery('.anchor').css('margin-top', -(shrinked_header_height) + 'px');    
+	jQuery('.anchor').css('padding-top', shrinked_header_height + 'px');
+	jQuery('.anchor').css('margin-top', -(shrinked_header_height) + 'px');
 	offsetTolerance = -(header_height);
 	//Detecting user's scroll
 	jQuery(window).scroll(function() {
@@ -238,7 +238,7 @@ jQuery(document).ready(function() {
 });
 /*-----------------------------------------------------------------------------------*/
 /*	CUBE PORTFOLIO
-/*-----------------------------------------------------------------------------------*/			
+/*-----------------------------------------------------------------------------------*/
 (function($, window, document, undefined) {
     'use strict';
     var gridContainer = $('#grid-container'),
@@ -280,8 +280,8 @@ jQuery(document).ready(function() {
         singlePageCounter: '',
         singlePageCallback: function(url, element) {
             // to update singlePage content use the following method: this.updateSinglePage(yourContent)
-            
-            
+
+
 			$('a[data-rel]').each(function () {
     $(this).attr('rel', $(this).data('rel'));
 });
@@ -428,14 +428,14 @@ jQuery(document).ready(function() {
 $( function() {
   // init Isotope
   var $container = $('.isotope');
-  
+
   $container.isotope({
     itemSelector: '.post-grid',
     transitionDuration: '0.6s',
     masonry: { columnWidth: '.col-md-6.col-sm-12' },
     layoutMode: 'masonry'
   });
-  
+
   $(window).resize(function(){
   	$container.isotope({
   		masonry: { columnWidth: '.col-md-6.col-sm-12' }
@@ -465,9 +465,9 @@ var instagramFeed = new Instafeed({
 			    offsetPxBefore: 0,
 			     offsetPxAfter: 0
 			  });
-			
+
 			  var $swipers = $(this);
-			
+
 			  $swipers.siblings('.arrow-left').click(function(){
 			$swipers.data('swiper').swipeTo($swipers.data('swiper').activeIndex-1);
 			return false;

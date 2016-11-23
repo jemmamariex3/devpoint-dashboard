@@ -4,7 +4,7 @@
         <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
             <div data-filter="*" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">All</div>
           {{#each categories}}
-              <div data-filter=".{{this}}" class="cbp-filter-item-custom btn">{{this}}</div>
+              <div data-filter=".{{this.filter}}" class="cbp-filter-item-custom btn">{{this.name}}</div>
           {{/each}}
         </div>
         <!-- /#filters-container -->
@@ -14,17 +14,18 @@
             <ul>
               {{#each portfolio}}
 
-                  <li class="cbp-item frame {{this.category}}"><a class="cbp-caption cbp-singlePage"
-                                                                  href="/ajax/{{this.postName}}.html">
+                  <li class="cbp-item frame {{this.filter}} cbp-caption">{{#if post}}<a class="cbp-singlePage"
+                                                                            href="/ajax/{{this.postName}}.html">{{/if}}
                       <div class="cbp-caption-defaultWrap"><img src="/style/images/art/pa1.jpg" alt=""></div>
                       <div class="cbp-caption-activeWrap">
                           <div class="cbp-l-caption-alignCenter">
                               <div class="cbp-l-caption-body">
                                   <div class="cbp-l-caption-title">{{this.Name}}</div>
+                                  <div>{{this.description}}</div>
                               </div>
                           </div>
                       </div>
-                  </a>
+                  {{#if post}}</a>{{/if}}
                   </li>
 
               {{/each}}

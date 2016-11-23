@@ -31,12 +31,12 @@ Author:		elemis
 	21. PRICING TABLE
 	22. FANCYBOX
 	23. DIVIDERS
-	24. FONT ICON PAGES	
+	24. FONT ICON PAGES
 	25. RESPONSIVE
-	
+
 	font-family: 'Libre Baskerville', serif;
 	font-family: 'Raleway', sans-serif;
-	
+
 -------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
 /*	00. RESET
@@ -74,7 +74,7 @@ iframe {
     background: #fefac7; /* Firefox */
     color: #2f2f2f;
 }
-@-webkit-keyframes rotation { 
+@-webkit-keyframes rotation {
 	from {
 	    -webkit-transform: rotate(0deg)
 	}
@@ -82,7 +82,7 @@ iframe {
 	    -webkit-transform: rotate(359deg)
 	}
 }
-@-moz-keyframes rotation { 
+@-moz-keyframes rotation {
 	from {
 	    -moz-transform: rotate(0deg)
 	}
@@ -90,7 +90,7 @@ iframe {
 	    -moz-transform: rotate(359deg)
 	}
 }
-@-o-keyframes rotation { 
+@-o-keyframes rotation {
 	from {
 	    -o-transform: rotate(0deg)
 	}
@@ -98,7 +98,7 @@ iframe {
 	    -o-transform: rotate(359deg)
 	}
 }
-@keyframes rotation { 
+@keyframes rotation {
 	from {
 	    transform: rotate(0deg)
 	}
@@ -1412,7 +1412,7 @@ figure a .text-overlay .info span {
     -o-animation: floating 2s infinite linear;
     color: #FFF;
 }
-@-webkit-keyframes floating { 
+@-webkit-keyframes floating {
 	0% {
 	    bottom: 30px
 	}
@@ -1423,7 +1423,7 @@ figure a .text-overlay .info span {
 	    bottom: 30px
 	}
 }
-@-moz-keyframes floating { 
+@-moz-keyframes floating {
 	0% {
 	    bottom: 30px
 	}
@@ -1434,7 +1434,7 @@ figure a .text-overlay .info span {
 	    bottom: 30px
 	}
 }
-@-ms-keyframes floating { 
+@-ms-keyframes floating {
 	0% {
 	    bottom: 30px
 	}
@@ -1445,7 +1445,7 @@ figure a .text-overlay .info span {
 	    bottom: 30px
 	}
 }
-@-o-keyframes floating { 
+@-o-keyframes floating {
 	0% {
 	    bottom: 30px
 	}
@@ -1456,7 +1456,7 @@ figure a .text-overlay .info span {
 	    bottom: 30px
 	}
 }
-@keyframes floating { 
+@keyframes floating {
 	0% {
 	    bottom: 30px
 	}
@@ -2350,6 +2350,7 @@ ul.layout-switcher li a.active {
 }
 input,
 textarea,
+select,
 .uneditable-input {
     width: 100%
 }
@@ -2601,7 +2602,7 @@ textarea {
     font-size: 20px !important;
 }
 /* Firefox Fix */
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
 	.fancybox-close:before,
 	.fancybox-prev span:before,
 	.fancybox-next span:before {
@@ -3051,21 +3052,21 @@ textarea {
 /*-----------------------------------------------------------------------------------*/
 /*	25. RESPONSIVE
 /*-----------------------------------------------------------------------------------*/
-@media (max-width: 1600px) { 
+@media (max-width: 1600px) {
 	.swiper-container.gallery,
 	.swiper-container.gallery img {
 	    height: 500px;
 	    width: auto;
 	}
 }
-@media (max-width: 1300px) { 
+@media (max-width: 1300px) {
 	.swiper-container.gallery,
 	.swiper-container.gallery img {
 	    height: 450px;
 	    width: auto;
 	}
 }
-@media (min-width: 1271px) { 
+@media (min-width: 1271px) {
 	.body-wrapper {
 	    padding-left: 80px
 	}
@@ -3112,7 +3113,7 @@ textarea {
 	    float: none !important
 	}
 }
-@media (max-width: 1270px) { 
+@media (max-width: 1270px) {
 	.navbar-header {
 	    padding: 0 40px
 	}
@@ -3244,11 +3245,11 @@ textarea {
 	    background: url('style/video/seattleferryride.jpg') center center no-repeat;
 	    background-size: cover;
 	}
-	#bgvid { 
-		display: none; 
+	#bgvid {
+		display: none;
 	}
 }
-@media (max-width: 991px) { 
+@media (max-width: 991px) {
 	[class*="col-"] {
 	    margin-bottom: 20px
 	}
@@ -3274,7 +3275,7 @@ textarea {
 	    margin-bottom: 20px
 	}
 }
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
 	.container {
 	    padding-left: 20px;
 	    padding-right: 20px;

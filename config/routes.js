@@ -38,8 +38,7 @@ module.exports.routes = {
 
   'get /': 'HomeController.homepage',
   'post /contact' : 'HomeController.contact',
-  'post /api/create': 'HomeController.create',
-  'get /api/getAll' : 'HomeController.getAll'
+  'get /admin' : "AdminController.admin"
 
   /***************************************************************************
   *                                                                          *
