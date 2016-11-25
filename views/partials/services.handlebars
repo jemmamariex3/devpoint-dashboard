@@ -8,7 +8,7 @@
                   <h5>{{this.title}}</h5>
                   <p>{{this.description}}</p>
                 {{#if ../admin}}
-                    <a href="/admin/deleteService/{{this._id}}">Delete</a>
+                    <a href="/admin/deleteService/{{this._id}}" class="delete-service">Delete</a>
                 {{/if}}
               </div>
               <!-- /.text -->
@@ -17,3 +17,7 @@
     </div>
 </div>
 <!-- /.services -->
+
+{{#section 'script'}}
+
+{{/section}}

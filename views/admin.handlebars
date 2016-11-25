@@ -1,7 +1,39 @@
 <div class="container">
   {{> admin/addService}}
-    <div class="box">
+
+    <div class="box services">
       {{> services}}
     </div>
   {{> portfolio}}
+  {{#consoleObject services}}{{/consoleObject}}
+{{#section 'script'}}
+    <script>
+        $('form[name=add-service]').submit(function() {
+
+            $.post($(this).attr('action'), $(this).serialize(), function(res) {
+                $(".response").html("It worked");
+                $(".services").html(res);
+            });
+
+            return false; // prevent default action
+        });
+    </script>
+    <script>
+        $(".services").on("click", ".delete-service", function () {
+            $.ajax({
+                url     : $(this).attr('href'),
+                type    : 'get',
+                success : function (res) {
+                    $(".services").html(res);
+                },
+                error   : function (res) {
+                    console.log(res)
+                }
+            });
+
+            return false;
+        })
+    </script>
+{{/section}}
 </div>
+

@@ -43,14 +43,20 @@ module.exports = {
         "icon": r.icon,
       })
       .then(function (u) {
-        res.redirect("/admin")
+        ResponseModels.set(res, function () {
+          res.locals.admin = true;
+          res.render('partials/services', {layout: false});
+        })
       });
   },
   deleteService: function (req, res) {
     service
       .remove({_id: req.params.id})
       .then(function () {
-        res.redirect("/admin")
+        ResponseModels.set(res, function () {
+          res.locals.admin = true;
+          res.render('partials/services', {layout: false});
+        })
       });
   },
   createPortfolio: function (req, res) {
@@ -59,7 +65,7 @@ module.exports = {
       {
         "category": r.category,
         "filter": r.filter,
-        "Name": r.Name,
+        "name": r.name,
         "postName": r.postName,
         "post" : r.post
       }).then(function (u) {
@@ -68,9 +74,17 @@ module.exports = {
   },
 
   admin: function (req, res) {
+    console.log(req.isAuthenticated())
     ResponseModels.set(res, function () {
       res.locals.admin = true;
-      res.render('admin')
+      return res.render('admin')
+    })
+  },
+
+  services: function(req, res){
+    ResponseModels.set(res, function () {
+      res.locals.admin = true;
+      return res.render('partials/services', {layout: false});
     })
   }
 
