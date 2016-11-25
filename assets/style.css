@@ -3751,7 +3751,7 @@ textarea {
   }
 
   .navbar.fixed .navbar-brand {
-    margin: 16px 0
+    /*margin: 16px 0*/
   }
 
   .navbar.fixed .btn.responsive-menu {
