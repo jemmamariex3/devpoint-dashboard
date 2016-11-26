@@ -758,9 +758,9 @@ video {
 }
 
 .navbar-brand img {
-  width: 82px;
+  width: 41px;
   height: 100%;
-  margin: 10px;
+  margin: 18px;
 
 }
 
@@ -3693,6 +3693,7 @@ textarea {
 
   .navbar-brand img {
     width: 55px;
+    margin:0;
   }
 
   .navbar {
@@ -3920,6 +3921,12 @@ textarea {
   .container {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .navbar-brand img {
+    width: 77px;
+    height: 100%;
+    margin: 12px;
+
   }
 
   .swiper-container.gallery,
