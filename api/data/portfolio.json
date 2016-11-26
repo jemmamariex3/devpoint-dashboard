@@ -20,12 +20,13 @@
     "_id": "33abdfc5-c87b-491f-9e3c-493e726dc76c"
   },
   {
-    "category": "HTML",
-    "filter": "html",
-    "name": "Project #1",
-    "image": "Project 1.jpg",
+    "category": "NodeJs/Express",
+    "filter": "node-express",
+    "name": "Dev-Point",
+    "image": "dev-point.gif",
+    "description": "Web Application which allows developers to create their portfolio websites from a simple dashboard. Website will include an About, Portfolio, and Contact Page.",
     "postName": "post3",
-    "post": true,
+    "post": false,
     "_id": "33abdfc5-c87b-491f-9e3c-493e726dc76c"
   }
 ]
