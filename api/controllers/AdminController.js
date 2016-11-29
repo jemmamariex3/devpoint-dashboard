@@ -8,6 +8,7 @@ var db = require('node-localdb');
 var service = db('api/data/services.json');
 var portfolio = db('api/data/portfolio.json');
 
+
 var getUniqueCategories = function (portfolioArray) {
   var uniqueCategories = [];
   for (var item in portfolioArray) {
@@ -45,7 +46,7 @@ module.exports = {
       .then(function (u) {
         ResponseModels.set(res, function () {
           res.locals.admin = true;
-          res.render('partials/services', {layout: false});
+          res.render('partials/lumos/services', {layout: false});
         })
       });
   },
@@ -55,7 +56,7 @@ module.exports = {
       .then(function () {
         ResponseModels.set(res, function () {
           res.locals.admin = true;
-          res.render('partials/services', {layout: false});
+          res.render('partials/lumos/services', {layout: false});
         })
       });
   },
@@ -77,14 +78,14 @@ module.exports = {
     console.log(req.isAuthenticated())
     ResponseModels.set(res, function () {
       res.locals.admin = true;
-      return res.render('admin')
+      return res.render('lumos/admin', {layout: "lumos"})
     })
   },
 
   services: function(req, res){
     ResponseModels.set(res, function () {
       res.locals.admin = true;
-      return res.render('partials/services', {layout: false});
+      return res.render('partials/lumos/services', {layout: false});
     })
   }
 

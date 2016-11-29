@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var nodemailer = require('nodemailer');
+var curLayout = "lumos";
 
 var getUniqueCategories = function (portfolioArray) {
   var uniqueCategories = [];
@@ -34,7 +35,7 @@ module.exports = {
 
   homepage: function (req, res) {
     ResponseModels.set(res, function(){
-      res.render('homepage')
+      res.render(curLayout + '/homepage', {layout: curLayout})
     })
   },
 
