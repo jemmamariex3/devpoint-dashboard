@@ -36,9 +36,8 @@ module.exports.routes = {
   //   view: 'homepage'
   // }
 
-  'get /': 'HomeController.homepage',
-  'post /contact' : 'HomeController.contact',
-  'get /admin' : "AdminController.admin",
+  'get /preview': 'HomeController.homepage',
+  'get /' : "AdminController.admin",
   '/login' : {
     view: 'login'
   },
