@@ -11,15 +11,15 @@
             <div class="clearfix"></div>
             <div class="divide10"></div>
             <div class="row">
-              {{#each services}}
+              {{#each user.services}}
                   <div class="col-md-4 col-sm-6">
-                      <div class="icon"><i class="{{this.icon}} icn"></i></div>
+                      <div class="icon"><i class="budicon-code icn"></i></div>
                       <!-- /.icon -->
                       <div class="text">
-                          <h5>{{this.title}}</h5>
+                          <h5>{{this.name}}</h5>
                           <p>{{this.description}}</p>
                         {{#if ../admin}}
-                            <a href="/admin/deleteService/{{this._id}}" class="delete-service">Delete</a>
+                            <a href="/admin/deleteService/{{this.id}}" class="delete-service">Delete</a>
                         {{/if}}
                       </div>
                       <!-- /.text -->

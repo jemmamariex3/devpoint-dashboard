@@ -1,6 +1,6 @@
 var axios = require('axios');
-module.exports.getAll = function (cb) {
-  axios.get('http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC')
+module.exports.getOne = function (username, cb) {
+  axios.get('https://devpoint-api.herokuapp.com/user?username=' + username)
     .then(function (response) {
       cb(response.data)
     })

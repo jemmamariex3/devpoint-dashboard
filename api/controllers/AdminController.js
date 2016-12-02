@@ -76,8 +76,12 @@ module.exports = {
 
   admin: function (req, res) {
     ResponseModels.set(res, function () {
-      res.locals.admin = true;
-      return res.render('admin')
+      UserData.getOne("jarellano", function(response){
+        res.locals.user = response;
+        res.locals.admin = true;
+        return res.render('admin')
+      });
+
     })
   },
 
