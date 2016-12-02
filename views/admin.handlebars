@@ -37,7 +37,7 @@
         })
     </script>
     <script>
-        $('form[name=add-project]').submit(function () {
+        $('form[name=add-portfolio]').submit(function () {
 
             $.post($(this).attr('action'), $(this).serialize(), function (res) {
                 $(".response").html("It worked");

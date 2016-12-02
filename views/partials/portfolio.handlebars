@@ -30,6 +30,9 @@
                               <div class="cbp-l-caption-body">
                                   <div class="cbp-l-caption-title">{{this.name}}</div>
                                   <div>{{this.description}}</div>
+                                  {{#if ../admin}}
+                                    <a href="/admin/deletePortfolio/{{this.id}}" class="delete-portfolio">Delete</a>
+                                {{/if}}
                               </div>
                           </div>
                       </div>

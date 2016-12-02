@@ -99,6 +99,12 @@ module.exports = {
       res.locals.admin = true;
       return res.render('partials/services', {layout: false});
     })
+  },
+  portfolio: function(req, res){
+    ResponseModels.set(res, function () {
+      res.locals.admin = true;
+      return res.render('partials/portfolio', {layout: false});
+    })
   }
 
 };
