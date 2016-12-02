@@ -1,12 +1,18 @@
 <section id="portfolio" class="portfolio">
     <div class="box">
         <h2 class="section-title pull-left">My Portfolio</h2>
+        {{#if admin}}
+              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-portfolio">Add
+                  Project
+              </button>
+          {{/if}}
         <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
             <div data-filter="*" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">All</div>
           {{#each categories}}
               <div data-filter=".{{this.filter}}" class="cbp-filter-item-custom btn">{{this.name}}</div>
           {{/each}}
         </div>
+
         <!-- /#filters-container -->
         <div class="clearfix"></div>
 
@@ -14,8 +20,10 @@
             <ul>
               {{#each portfolio}}
 
-                  <li class="cbp-item frame {{this.filter}} cbp-caption">{{#if post}}<a class="cbp-singlePage"
-                                                                            href="/ajax/{{this.postName}}.html">{{/if}}
+                  <li class="cbp-item frame {{this.filter}} cbp-caption">
+                  {{#if post}}
+                    <a class="cbp-singlePage" href="/ajax/{{this.postName}}.html">
+                  {{/if}}
                       <div class="cbp-caption-defaultWrap"><img src="/style/project-images/{{this.image}}" alt=""></div>
                       <div class="cbp-caption-activeWrap">
                           <div class="cbp-l-caption-alignCenter">
