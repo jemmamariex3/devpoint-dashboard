@@ -42,6 +42,7 @@ module.exports.routes = {
   '/login' : {
     view: 'login'
   },
+
   'post /login' : "AuthController.login"
 
   /***************************************************************************

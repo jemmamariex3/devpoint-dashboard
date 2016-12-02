@@ -46,7 +46,7 @@ module.exports = {
       .then(function (u) {
         ResponseModels.set(res, function () {
           res.locals.admin = true;
-          res.render('partials/lumos/services', {layout: false});
+          res.render('partials/services', {layout: false});
         })
       });
   },
@@ -56,7 +56,7 @@ module.exports = {
       .then(function () {
         ResponseModels.set(res, function () {
           res.locals.admin = true;
-          res.render('partials/lumos/services', {layout: false});
+          res.render('partials/services', {layout: false});
         })
       });
   },
@@ -75,17 +75,16 @@ module.exports = {
   },
 
   admin: function (req, res) {
-    console.log(req.isAuthenticated())
     ResponseModels.set(res, function () {
       res.locals.admin = true;
-      return res.render('lumos/admin', {layout: "lumos"})
+      return res.render('admin')
     })
   },
 
   services: function(req, res){
     ResponseModels.set(res, function () {
       res.locals.admin = true;
-      return res.render('partials/lumos/services', {layout: false});
+      return res.render('partials/services', {layout: false});
     })
   }
 

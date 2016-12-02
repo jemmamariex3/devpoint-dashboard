@@ -1,0 +1,24 @@
+<button id="generate">Generate List</button>
+<div class="box" id="list">
+</div>
+
+{{#section 'script'}}
+        <script>
+            $("#generate").on("click", function () {
+            $.ajax({
+                url: "/list",
+                type: 'get',
+                success: function (res) {
+                    $('#list').append(res);
+                },
+                error: function (res) {
+                    console.log(res)
+                }
+            });
+
+            return false;
+        })
+    </script>
+{{/section}}
+
+

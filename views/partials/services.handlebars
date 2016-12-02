@@ -1,0 +1,38 @@
+<section id="services" class="services">
+    <div class="box services">
+        <div class="services-1">
+            <h2 class="section-title pull-left">My Services</h2>
+          {{#if admin}}
+              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">Add
+                  Service
+              </button>
+          {{/if}}
+
+            <div class="clearfix"></div>
+            <div class="divide10"></div>
+            <div class="row">
+              {{#each services}}
+                  <div class="col-md-4 col-sm-6">
+                      <div class="icon"><i class="{{this.icon}} icn"></i></div>
+                      <!-- /.icon -->
+                      <div class="text">
+                          <h5>{{this.title}}</h5>
+                          <p>{{this.description}}</p>
+                        {{#if ../admin}}
+                            <a href="/admin/deleteService/{{this._id}}" class="delete-service">Delete</a>
+                        {{/if}}
+                      </div>
+                      <!-- /.text -->
+                  </div>
+              {{/each}}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Modal -->
+{{#if admin}}
+  {{> modals/add-service}}
+{{/if}}
+

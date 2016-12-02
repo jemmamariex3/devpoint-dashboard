@@ -1,16 +1,14 @@
 <div class="container">
-  {{> lumos/admin/addService}}
-
-    <div class="box services">
-      {{> lumos/services}}
-    </div>
-  {{> lumos/portfolio}}
+  {{> services}}
+  {{> portfolio}}
   {{#consoleObject services}}{{/consoleObject}}
+</div>
+
 {{#section 'script'}}
     <script>
-        $('form[name=add-service]').submit(function() {
+        $('form[name=add-service]').submit(function () {
 
-            $.post($(this).attr('action'), $(this).serialize(), function(res) {
+            $.post($(this).attr('action'), $(this).serialize(), function (res) {
                 $(".response").html("It worked");
                 $(".services").html(res);
             });
@@ -21,12 +19,12 @@
     <script>
         $(".services").on("click", ".delete-service", function () {
             $.ajax({
-                url     : $(this).attr('href'),
-                type    : 'get',
-                success : function (res) {
+                url: $(this).attr('href'),
+                type: 'get',
+                success: function (res) {
                     $(".services").html(res);
                 },
-                error   : function (res) {
+                error: function (res) {
                     console.log(res)
                 }
             });
@@ -35,5 +33,4 @@
         })
     </script>
 {{/section}}
-</div>
 

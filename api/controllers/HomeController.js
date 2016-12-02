@@ -35,7 +35,7 @@ module.exports = {
 
   homepage: function (req, res) {
     ResponseModels.set(res, function(){
-      res.render(curLayout + '/homepage', {layout: curLayout})
+      res.render('homepage', {layout: curLayout})
     })
   },
 
