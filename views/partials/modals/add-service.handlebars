@@ -1,4 +1,4 @@
-<div id="add-service" class="modal fade" role="dialog">
+<div id="add-service" class="modal fade" role="dialog" >
     <div class="modal-dialog">
         <!-- Modal content-->
         <section>
@@ -8,26 +8,26 @@
                 <div class="divide30"></div>
                 <div class="form-container">
                     <div class="response alert alert-success"></div>
-                    <form class="" action="/admin/createService" method="post" name="add-service">
+                    <form class="" ng-submit="submitForm()">
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-row text-input-row">
-                                        <label>Title</label>
-                                        <input type="text" name="title" class="text-input defaultText required"/>
+                                        <label>[[user.name]]</label>
+                                        <input type="text" name="name" class="text-input defaultText required" ng-model="user.name"/>
                                     </div>
                                     <div class="form-row text-input-row">
                                         <label>Icon</label>
 
                                         <select name="icon">
-                                            <option value="budicon-code">budicon-code</option>
+                                            <option value="budicon-code" ng-model="user.icon">budicon-code</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 lp5">
                                     <div class="form-row text-area-row">
                                         <label>Description</label>
-                                        <textarea name="description" class="text-area required"></textarea>
+                                        <textarea name="description" class="text-area required" ng-model="user.description"></textarea>
                                     </div>
                                     <div class="form-row hidden-row">
                                         <input type="hidden" name="hidden" value=""/>

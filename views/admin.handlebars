@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="services">
     <section id="about">
         <div class="box">
             <h1 class="section-title">Welcome to Your DevPoint Dashboard</h1>
@@ -9,17 +9,17 @@
 </div>
 
 {{#section 'script'}}
-    <script>
-        $('form[name=add-service]').submit(function () {
+    <!--<script>-->
+        <!--$('form[name=add-service]').submit(function () {-->
 
-            $.post($(this).attr('action'), $(this).serialize(), function (res) {
-                $(".response").html("It worked");
-                $(".services").html(res);
-            });
+            <!--$.post($(this).attr('action'), $(this).serialize(), function (res) {-->
+                <!--$(".response").html("It worked");-->
+                <!--$(".services").html(res);-->
+            <!--});-->
 
-            return false; // prevent default action
-        });
-    </script>
+            <!--return false; // prevent default action-->
+        <!--});-->
+    <!--</script>-->
     <script>
         $(".services").on("click", ".delete-service", function () {
             $.ajax({
@@ -35,6 +35,12 @@
 
             return false;
         })
+
+        var getItem = function(itemName, cb){
+            $.ajax({
+                url: "/"
+            })
+        }
     </script>
 {{/section}}
 
