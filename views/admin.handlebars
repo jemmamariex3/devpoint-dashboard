@@ -42,5 +42,32 @@
             })
         }
     </script>
+    <script>
+        $('form[name=add-portfolio]').submit(function () {
+
+            $.post($(this).attr('action'), $(this).serialize(), function (res) {
+                $(".response").html("It worked");
+                $(".portfolio").html(res);
+            });
+
+            return false; // prevent default action
+        });
+    </script>
+    <script>
+        $(".porfolio").on("click", ".delete-portfolio", function () {
+            $.ajax({
+                url: $(this).attr('href'),
+                type: 'get',
+                success: function (res) {
+                    $(".portfolio").html(res);
+                },
+                error: function (res) {
+                    console.log(res)
+                }
+            });
+
+            return false;
+        })
+    </script>
 {{/section}}
 

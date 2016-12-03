@@ -73,7 +73,16 @@ module.exports = {
       res.send(u);
     });
   },
-
+ deletePortfolio: function (req, res) {
+    service
+      .remove({_id: req.params.id})
+      .then(function () {
+        ResponseModels.set(res, function () {
+          res.locals.admin = true;
+          res.render('partials/portfolio', {layout: false});
+        })
+      });
+  },
   admin: function (req, res) {
     ResponseModels.set(res, function () {
       UserData.getOne("jarellano", function(response){
@@ -89,6 +98,12 @@ module.exports = {
     ResponseModels.set(res, function () {
       res.locals.admin = true;
       return res.render('partials/services', {layout: false});
+    })
+  },
+  portfolio: function(req, res){
+    ResponseModels.set(res, function () {
+      res.locals.admin = true;
+      return res.render('partials/portfolio', {layout: false});
     })
   }
 
