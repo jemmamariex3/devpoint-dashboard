@@ -19,8 +19,7 @@
                           <h5>[[x.name]]</h5>
                           <p>[[x.description]]</p>
                           {{#if admin}}
-                              <a class="delete-service" href="https://devpoint-api.herokuapp.com[[x.deleteLink]]">Delete</a>
-                              <button type="button" class="btn btn-link" ng-click="delete([[x.id]])">Link</button>
+                              <button type="button" class="btn btn-link" ng-click="delete([[x.id]])">Delete</button>
                           {{/if}}
 
                       </div>
