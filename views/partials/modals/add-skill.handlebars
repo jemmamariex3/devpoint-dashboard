@@ -1,39 +1,34 @@
-<div id="add-service" class="modal fade" role="dialog" >
+<div id="add-skill" class="modal fade" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <!-- Modal content-->
         <section>
             <div class="modal-content box">
-                <h2 class="section-title">[[newItemMethod]] Service</h2>
+                <h2 class="section-title">Add a Skill</h2>
 
                 <div class="divide30"></div>
                 <div class="form-container">
                     <div class="response alert alert-success"></div>
-                    <form class="" ng-submit="createItem('services')">
+                    <form class="" ng-submit="createItem('skills')">
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-row text-input-row">
-                                        <label>[[newItem.name]]</label>
+                                        <label>[[user.name]]</label>
                                         <input type="text" name="name" class="text-input defaultText required" ng-model="newItem.name"/>
                                     </div>
                                     <div class="form-row text-input-row">
                                         <label>Icon</label>
 
                                         <select name="icon">
+                                            <option value="icon-youtube" ng-model="newItem.icon">icon-youtube</option>
+                                            <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
+                                            <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
+                                            <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
                                             <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 lp5">
-                                    <div class="form-row text-area-row">
-                                        <label>Description</label>
-                                        <textarea name="description" class="text-area required" ng-model="newItem.description"></textarea>
-                                    </div>
-                                    <div class="form-row hidden-row">
-                                        <input type="hidden" name="hidden" value=""/>
-                                    </div>
 
-                                </div>
                                 <div class="col-sm-6">
                                     <div class="button-row pull-right">
                                         <input type="submit" value="Create" name="submit" class="btn btn-submit bm0"/>
@@ -56,5 +51,3 @@
         </section>
     </div>
 </div>
-
-

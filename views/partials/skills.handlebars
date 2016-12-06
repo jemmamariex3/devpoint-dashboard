@@ -3,30 +3,32 @@
         <div class="skills-1">
             <h2 class="section-title pull-left">My Skills</h2>
           {{#if admin}}
-              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-skills">Add Skills
+              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-skill">Add Skills
               </button>
           {{/if}}
 
             <div class="clearfix"></div>
             <div class="divide10"></div>
-            <div class="row" >
+            <div class="row">
 
-                  <div class="col-md-4 col-sm-6" ng-repeat="x in services" >
-                      <div class="icon"><i class="budicon-code icn"></i></div>
-                      <!-- /.icon -->
-                      <div class="text">
-                          {{!-- <h5>[[x.name]]</h5>
-                          <p>[[x.description]]</p>
-                          {{#if admin}}
-                              <button type="button" class="btn btn-link" ng-click="delete([[x.id]])">Delete</button>
-                          {{/if}} --}}
 
-                      </div>
-                      <!-- /.text -->
-                  </div>
+                <div class="col-md-4 col-sm-6" ng-repeat="x in user.skills">
+                    <!--<div class="icon"><i class="budicon-code icn"></i></div>-->
+                    <!--<div class="icon"><i class="icon-github"></i></div>-->
+                    <!-- /.icon -->
+                    <div class="text">
+                        <h5>[[x.name]]</h5>
+                        <!--<p>[[x.skills]]</p>-->
 
+                        <button type="button" class="btn btn-link" ng-click="deleteItem([[x.id]], 'skill')">Delete</button>
+
+
+                    </div>
+                    <!-- /.text -->
+                </div>
             </div>
         </div>
     </div>
+  {{> modals/add-skill}}
 
 </section>
