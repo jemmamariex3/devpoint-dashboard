@@ -2,37 +2,36 @@
     <div class="box services">
         <div class="services-1">
             <h2 class="section-title pull-left">My Services - [[firstName]]</h2>
-          {{#if admin}}
-              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-service">Add
-                  Service
-              </button>
-          {{/if}}
+
+            <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-service">
+                Add Service
+            </button>
+
 
             <div class="clearfix"></div>
             <div class="divide10"></div>
-            <div class="row" >
+            <div class="row">
 
-                  <div class="col-md-4 col-sm-6" ng-repeat="x in services" >
-                      <div class="icon"><i class="budicon-code icn"></i></div>
-                      <!-- /.icon -->
-                      <div class="text">
-                          <h5>[[x.name]]</h5>
-                          <p>[[x.description]]</p>
-                          {{#if admin}}
-                              <button type="button" class="btn btn-link" ng-click="delete([[x.id]])">Delete</button>
-                          {{/if}}
+                <div class="col-md-4 col-sm-6" ng-repeat="x in services.services">
+                    <div class="icon"><i class="budicon-code icn"></i></div>
+                    <!-- /.icon -->
+                    <div class="text">
+                        <h5>[[x.name]]</h5>
+                        <p>[[x.description]]</p>
 
-                      </div>
-                      <!-- /.text -->
-                  </div>
+                        <button type="button" class="btn btn-link" ng-click="delete([[x.id]])">Delete</button>
+
+
+                    </div>
+                    <!-- /.text -->
+                </div>
 
             </div>
         </div>
     </div>
     <!-- Modal -->
-  {{#if admin}}
-    {{> modals/add-service}}
-  {{/if}}
+  {{> modals/add-service}}
+
 </section>
 
 

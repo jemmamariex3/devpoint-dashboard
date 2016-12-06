@@ -7,25 +7,16 @@ app.config(function ($interpolateProvider) {
 });
 
 app.service('sharedData', function() {
-  $scope
+ // $scope
 });
 
 app.controller('appController', function($scope){
   $scope.firstName = "John";
   $scope.lastName = "Doe";
+  $scope.services = {};
 });
 
 app.controller('services', function ($scope, $http) {
-
-
-  $scope.updateServices = function () {
-    $scope.services.push('new service')
-  };
-
-  $scope.user = {
-    name: "Html"
-  };
-
   $scope.delete = function (id) {
     $http.get("https://devpoint-api.herokuapp.com/service/delete/" + id).then(function (response) {
       $scope.reloadServices();
@@ -33,7 +24,7 @@ app.controller('services', function ($scope, $http) {
   };
 
   $scope.reloadServices = function () {
-    $http.get("https://devpoint-api.herokuapp.com/user/jarellano/services").then(function (response) {
+    $http.get("https://devpoint-api.herokuapp.com/user?username=jarellano").then(function (response) {
       $scope.services = response.data;
     }, function (response) {
       $scope.services = "Something went wrong";
@@ -55,4 +46,3 @@ app.controller('services', function ($scope, $http) {
   };
 
 });
-
