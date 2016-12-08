@@ -12,10 +12,11 @@ app.service('sharedData', function () {
 
 
 app.controller('appController', function ($scope, $http, ModalService) {
-
+  // var basePath = 'http://localhost:3001';
+  var basePath = 'https://devpoint-api.herokuapp.com';
   //GLOBAL VARIABLES
   $scope.deleteItem = function (id, itemName) {
-    $http.delete("https://devpoint-api.herokuapp.com/user/jarellano/" + itemName + "/" + id).then(function (response) {
+    $http.delete( basePath + "/user/jarellano/" + itemName + "/" + id).then(function (response) {
       $scope.reloadData();
     })
   };
@@ -25,7 +26,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
   $scope.newItemMethod = "Create";
 
   $scope.reloadData = function () {
-    $http.get("https://devpoint-api.herokuapp.com/user?username=jarellano").then(function (response) {
+    $http.get(basePath + "/user?username=jarellano").then(function (response) {
       $scope.user = response.data;
     }, function (response) {
       $scope.user = "Something went wrong";
@@ -35,23 +36,33 @@ app.controller('appController', function ($scope, $http, ModalService) {
 
   $scope.createItem = function (itemName, item) {
     // Posting data to php file
+    delete item.userId;
+    delete item.deleteLink;
+    delete item.createdAt;
+    delete item.updatedAt;
+    console.log(item);
+
+
+
     $http({
       method: 'POST',
-      url: 'https://devpoint-api.herokuapp.com/user/jarellano/' + itemName,
-      data: $.param($scope.newItem), //forms user object
+      url: basePath + '/user/jarellano/' + itemName,
+      data: $.param(item), //forms user object
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
       .then(function (data) {
+        console.log(data.data);
         $scope.reloadData();
-        $scope.newItem = {};
       });
   };
 
   $scope.show = function (itemName, item) {
-    var newItem = item[0][0];
-    var method = "post";
+
+    var method = "Create";
+    var newItem;
     if (item) {
-      method = "put";
+      newItem = item[0][0];
+      method = "Update";
     }
     ModalService.showModal({
       templateUrl: '/js/modals/' + itemName + '.html',
@@ -72,7 +83,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
           $scope.message = "Cancelled";
         }
         else {
-          $scope.createItem()
+          $scope.createItem(itemName, result);
           $scope.message = result;
         }
       });
@@ -84,10 +95,10 @@ app.controller('ModalController', function ($scope, options, close) {
   $scope.curItem = options.item;
   $scope.method = options.method;
   $scope.close = function (result) {
-    if(result){
+    if (result) {
       close($scope.curItem, 500); // close, but give 500ms for bootstrap to animate
     }
-    else{
+    else {
       close(result, 500)
     }
 
