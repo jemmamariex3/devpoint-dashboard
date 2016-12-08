@@ -7,10 +7,7 @@
     <meta name="author" content="Jonathan Arellano">
     <!--<link rel="shortcut icon" href="style/images/favicon.png">-->
     <title>Jonathan Arellano</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
-    <script>
 
-    </script>
     <!-- Bootstrap core CSS -->
     <link href="/style/css/bootstrap.min.css" rel="stylesheet">
     <link href="/style/css/plugins.css" rel="stylesheet">
@@ -23,8 +20,6 @@
           type='text/css'>
     <link href="/style/type/fontello.css" rel="stylesheet">
     <link href="/style/type/budicons.css" rel="stylesheet">
-    <!--Angular JS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
   <script src="/style/js/html5shiv.js"></script>
@@ -39,6 +34,13 @@
 </div>
 
 <div class="body-wrapper" ng-controller="appController">
+
+
+    <h3>Angular Modal Service</h3>
+    <a class="btn btn-default" href ng-click="show('services')">Show a Modal</a>
+    <span>[[message]]</span>
+
+
   {{> navbar}}
 
   {{{body}}}
@@ -48,10 +50,14 @@
 <!-- /.body-wrapper -->
 <script src="/style/js/jquery.min.js"></script>
 <script src="/style/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+<script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
+
 <script src="/style/js/jquery.themepunch.tools.min.js"></script>
 <script src="/style/js/classie.js"></script>
 <script src="/style/js/plugins.js"></script>
 <script src="/style/js/scripts.js"></script>
+
 <script src="/js/app.js"></script>
 
 

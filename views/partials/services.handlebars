@@ -16,7 +16,7 @@
 
             <div class="row">
 
-                <div class="col-md-4 col-sm-6" ng-repeat="x in user.services">
+                <div class="col-md-4 col-sm-6" ng-repeat="x in user.service">
                     <div class="icon"><i class="budicon-code icn"></i></div>
                     <!-- /.icon -->
                     <div class="text">
@@ -24,6 +24,7 @@
                         <p>[[x.description]]</p>
 
                         <button type="button" class="btn btn-link" ng-click="deleteItem([[x.id]], 'service')">Delete</button>
+                        <button type="button" class="btn btn-link" ng-click="show('services', [[x]])">Update</button>
 
 
                     </div>

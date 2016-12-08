@@ -1,4 +1,4 @@
-var app = angular.module("myApp", []);
+var app = angular.module("myApp", ['angularModalService']);
 
 
 app.config(function ($interpolateProvider) {
@@ -6,12 +6,12 @@ app.config(function ($interpolateProvider) {
   $interpolateProvider.endSymbol(']]');
 });
 
-app.service('sharedData', function() {
- // $scope
+app.service('sharedData', function () {
+  // $scope
 });
 
 
-app.controller('appController', function ($scope, $http) {
+app.controller('appController', function ($scope, $http, ModalService) {
 
   //GLOBAL VARIABLES
   $scope.deleteItem = function (id, itemName) {
@@ -33,7 +33,7 @@ app.controller('appController', function ($scope, $http) {
   };
   $scope.reloadData();
 
-  $scope.createItem = function (itemName) {
+  $scope.createItem = function (itemName, item) {
     // Posting data to php file
     $http({
       method: 'POST',
@@ -47,5 +47,50 @@ app.controller('appController', function ($scope, $http) {
       });
   };
 
+  $scope.show = function (itemName, item) {
+    var newItem = item[0][0];
+    var method = "post";
+    if (item) {
+      method = "put";
+    }
+    ModalService.showModal({
+      templateUrl: '/js/modals/' + itemName + '.html',
+      controller: "ModalController",
+      inputs: {
+        options: {
+          item: newItem,
+          method: method
+        }
+      }
+    }).then(function (modal) {
+      modal.element.modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+      modal.close.then(function (result) {
+        if (!result) {
+          $scope.message = "Cancelled";
+        }
+        else {
+          $scope.createItem()
+          $scope.message = result;
+        }
+      });
+    });
+  };
+});
+
+app.controller('ModalController', function ($scope, options, close) {
+  $scope.curItem = options.item;
+  $scope.method = options.method;
+  $scope.close = function (result) {
+    if(result){
+      close($scope.curItem, 500); // close, but give 500ms for bootstrap to animate
+    }
+    else{
+      close(result, 500)
+    }
+
+  };
 
 });
