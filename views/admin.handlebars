@@ -4,27 +4,27 @@
             <h1 class="section-title" style="text-align:center">[[user.firstName]] - Welcome to Your DevPoint Dashboard</h1>
         </div>
     </section>
-  
+
   {{> about}}
   {{> services}}
   {{> skills}}
   {{> portfolio}}
   {{> social}}
-  {{> contact}}
-  {{> footer}}
+
+
 </div>
 
 {{#section 'script'}}
     <!--<script>-->
-        <!--$('form[name=add-service]').submit(function () {-->
+    <!--$('form[name=add-service]').submit(function () {-->
 
-            <!--$.post($(this).attr('action'), $(this).serialize(), function (res) {-->
-                <!--$(".response").html("It worked");-->
-                <!--$(".services").html(res);-->
-            <!--});-->
+    <!--$.post($(this).attr('action'), $(this).serialize(), function (res) {-->
+    <!--$(".response").html("It worked");-->
+    <!--$(".services").html(res);-->
+    <!--});-->
 
-            <!--return false; // prevent default action-->
-        <!--});-->
+    <!--return false; // prevent default action-->
+    <!--});-->
     <!--</script>-->
     <script>
         $(".services").on("click", ".delete-service", function () {
@@ -42,7 +42,7 @@
             return false;
         })
 
-        var getItem = function(itemName, cb){
+        var getItem = function (itemName, cb) {
             $.ajax({
                 url: "/"
             })
