@@ -2,10 +2,10 @@
     <div class="box skills">
         <div class="skills-1">
             <h2 class="section-title pull-left">My Skills</h2>
-          {{#if admin}}
-              <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#add-skill">Add Skills
-              </button>
-          {{/if}}
+              <button type="button" class="btn btn-info btn-lg pull-right" ng-click="show('skill')">
+                Add Skill
+            </button>
+
 
             <div class="clearfix"></div>
             <div class="divide10"></div>
@@ -13,14 +13,15 @@
 
 
                 <div class="col-md-4 col-sm-6" ng-repeat="x in user.skill">
-                    <!--<div class="icon"><i class="budicon-code icn"></i></div>-->
-                    <!--<div class="icon"><i class="icon-github"></i></div>-->
+                    <div class="icon"><i class="budicon-code icn"></i></div>
+                    <div class="icon"><i class="icon-github"></i></div>
                     <!-- /.icon -->
                     <div class="text">
                         <h5>[[x.name]]</h5>
-                        <!--<p>[[x.skills]]</p>-->
+                        <p>[[x.skills]]</p>
 
                         <button type="button" class="btn btn-link" ng-click="deleteItem([[x.id]], 'skill')">Delete</button>
+                        <button type="button" class="btn btn-link" ng-click="show('skill', [[x]])">Update</button>
 
 
                     </div>
