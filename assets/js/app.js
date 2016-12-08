@@ -92,6 +92,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
 });
 
 app.controller('ModalController', function ($scope, options, close) {
+  $scope.original = angular.copy(options.item);
   $scope.curItem = options.item;
   $scope.method = options.method;
   $scope.close = function (result) {
@@ -99,6 +100,7 @@ app.controller('ModalController', function ($scope, options, close) {
       close($scope.curItem, 500); // close, but give 500ms for bootstrap to animate
     }
     else {
+      angular.copy($scope.original, $scope.curItem);
       close(result, 500)
     }
 
