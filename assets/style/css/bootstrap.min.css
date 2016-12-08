@@ -4004,14 +4004,14 @@ tbody.collapse.in {
 .input-group[class*="col-"] {
   float: none;
   padding-left: 0;
-  padding-right: 0
+  padding-right: 0;
 }
 
 .input-group .form-control {
   position: relative;
   z-index: 2;
   float: left;
-  width: 100%;
+  width: 50%;
   margin-bottom: 0
 }
 
