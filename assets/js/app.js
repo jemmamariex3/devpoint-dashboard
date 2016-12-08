@@ -89,6 +89,31 @@ app.controller('appController', function ($scope, $http, ModalService) {
       });
     });
   };
+
+  $scope.updateUser = function(){
+    var userData = angular.copy($scope.user);
+    delete userData.username;
+    delete userData.password;
+    delete userData.createdAt;
+    delete userData.updatedAt;
+    delete userData.profileImage;
+    delete userData.skill;
+    delete userData.link;
+    delete userData.id;
+    delete userData.service;
+    delete userData.project;
+    $http({
+      method: 'PUT',
+      url: basePath + '/user/jarellano/',
+      data: $.param(userData), //forms user object
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+      .then(function (data) {
+        console.log(data.data);
+        $scope.reloadData();
+        $scope.message = "it worked."; 
+      });
+  }
 });
 
 app.controller('ModalController', function ($scope, options, close) {

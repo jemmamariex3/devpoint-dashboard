@@ -5,45 +5,7 @@
                   Project
               </button>
               
-        <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
-            <div data-filter="*" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">All</div>
-          {{#each categories}}
-              <div data-filter=".{{this.filter}}" class="cbp-filter-item-custom btn">{{this.name}}</div>
-          {{/each}}
-        </div>
-
-        <!-- /#filters-container -->
-        <div class="clearfix"></div>
-
-        <div id="grid-container" class="cbp-l-grid-masonry">
-            <ul>
-              {{#each portfolio}}
-
-                  <li class="cbp-item frame {{this.filter}} cbp-caption">
-                  {{#if post}}
-                    <a class="cbp-singlePage" href="/ajax/{{this.postName}}.html">
-                  {{/if}}
-                      <div class="cbp-caption-defaultWrap"><img src="/style/project-images/{{this.image}}" alt=""></div>
-                      <div class="cbp-caption-activeWrap">
-                          <div class="cbp-l-caption-alignCenter">
-                              <div class="cbp-l-caption-body">
-                                  <div class="cbp-l-caption-title">{{this.name}}</div>
-                                  <div>{{this.description}}</div>
-                              </div>
-                              {{#if ../admin}}
-                                    <a href="/admin/deletePortfolio/{{this.id}}" class="delete-portfolio">Delete</a>
-                              {{/if}}
-                          </div>
-                      </div>
-                  {{#if post}}</a>{{/if}}
-                  </li>
-
-              {{/each}}
-            </ul>
-
-
-        </div>
-
+        
     </div>
     <!-- /.box -->
 </section>
