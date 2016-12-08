@@ -25,45 +25,31 @@
                     <fieldset>
                         <div class="row">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <label>Name</label>
+                                <div class="col-sm-6">
+                                    <label>First Name</label>
+                                    <input type="text" name="name" class="text-input defaultText required" ng-model="user.firstName" />
                                  </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.name" />
+                                <div class="col-sm-6">
+                                    <label>Last Name</label>
+                                    <input type="text" name="name" class="text-input defaultText required" ng-model="user.lastName" />
                                  </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label>Headline</label>
-                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.headline" />
+                                    <input type="text" name="name" class="text-input defaultText required" ng-model="user.headline" />
                                  </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label>Description</label>
+                                   <textarea name="description" class="text-area required" ng-model="user.description"></textarea>
                                  </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                   <textarea name="description" class="text-area required" ng-model="curItem.description"></textarea>
-                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-sm-6 lp5">
                                 <div class="button-row pull-left">
                                     <button type="button" ng-click="close(true)" class="btn btn-primary">Update</button>
                                 </div>
                             </div>   
-                        </div>
                     </fieldset>
                 </form>
             </div>
