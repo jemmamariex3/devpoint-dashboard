@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing Homes
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+//===================================================================================================================
 var db = require('node-localdb');
 var service = db('api/data/services.json');
 var portfolio = db('api/data/portfolio.json');
@@ -34,7 +35,7 @@ module.exports = {
   /**
    * `HomeController.homepage()`
    */
-
+  //===================================================================================================================
   createService: function (req, res) {
     var r = req.body;
     service.insert(

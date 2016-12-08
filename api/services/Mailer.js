@@ -3,7 +3,7 @@ module.exports.contactMe = function (data) {
     'contactMe',
     data,
     {
-      to: 'jonathan.arellano.216@gmail.com',
+      to: 'devpoint.tech@gmail.com',
       subject: 'New Potential Client'
     },
     function (err) {
