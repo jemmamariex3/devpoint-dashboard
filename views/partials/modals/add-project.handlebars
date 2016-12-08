@@ -1,30 +1,49 @@
-<div id="add-service" class="modal fade" role="dialog" >
+<div id="add-project" class="modal fade" role="dialog" >
     <div class="modal-dialog">
         <!-- Modal content-->
         <section>
             <div class="modal-content box">
-                <h2 class="section-title">[[newItemMethod]] Service</h2>
+                <h2 class="section-title">[[newItemMethod]] Project</h2>
 
                 <div class="divide30"></div>
                 <div class="form-container">
                     <div class="response alert alert-success"></div>
-                    <form class="" ng-submit="createItem('services')">
+                    <form class="" ng-submit="createItem('project')">
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-row text-input-row">
-                                        <label>Name of Service</label>
-                                        <label>[[newItem.name]]</label>
+                                        <label>Name</label>
+                                        {{!-- <label>[[newItem.name]]</label> --}}
                                         <input type="text" name="name" class="text-input defaultText required" ng-model="newItem.name"/>
                                     </div>
-                                    <div class="form-row text-input-row">
-                                        <label>Icon</label>
 
-                                        <select name="icon">
-                                            <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
-                                        </select>
+                                     <div class="form-row text-input-row">
+                                        <label>GitHub Link</label>
+                                        {{!-- <label>[[newItem.github]]</label> --}}
+                                        <input type="text" name="github" class="text-input defaultText required" ng-model="newItem.github"/>
                                     </div>
+
+                                     <div class="form-row text-input-row">
+                                        <label>Live Demo Link</label>
+                                        {{!-- <label>[[newItem.liveDemo]]</label> --}}
+                                        <input type="text" name="liveDemo" class="text-input defaultText required" ng-model="newItem.liveDemo"/>
+                                    </div>
+
+                                     <div class="form-row text-input-row">
+                                        <label>Other</label>
+                                       {{!--  <label>[[newItem.other]]</label> --}}
+                                        <input type="text" name="other" class="text-input defaultText required" ng-model="newItem.other"/>
+                                    </div>
+
+                                     <div class="form-row text-input-row">
+                                        <label>Image Link</label>
+                                        {{!-- <label>[[newItem.image]]</label> --}}
+                                        <input type="text" name="image" class="text-input defaultText required" ng-model="newItem.image"/>
+                                    </div>
+                               
                                 </div>
+
                                 <div class="col-sm-12 lp5">
                                     <div class="form-row text-area-row">
                                         <label>Description</label>
