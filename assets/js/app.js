@@ -14,9 +14,16 @@ app.service('sharedData', function () {
 app.controller('appController', function ($scope, $http, ModalService) {
   // var basePath = 'http://localhost:3001';
   var basePath = 'https://devpoint-api.herokuapp.com';
+  $scope.username = "jarellano";
   //GLOBAL VARIABLES
+  $scope.icons = [
+    {name: "GitHub", class: "icon-github"},
+    {name: "Code", class: "icon-code"},
+
+  ];
+
   $scope.deleteItem = function (id, itemName) {
-    $http.delete( basePath + "/user/jarellano/" + itemName + "/" + id).then(function (response) {
+    $http.delete(basePath + "/user/" + $scope.username + "/" + itemName + "/" + id).then(function (response) {
       $scope.reloadData();
     })
   };
@@ -26,7 +33,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
   $scope.newItemMethod = "Create";
 
   $scope.reloadData = function () {
-    $http.get(basePath + "/user?username=jarellano").then(function (response) {
+    $http.get(basePath + "/user/" + $scope.username).then(function (response) {
       $scope.user = response.data;
     }, function (response) {
       $scope.user = "Something went wrong";
@@ -43,10 +50,9 @@ app.controller('appController', function ($scope, $http, ModalService) {
     console.log(item);
 
 
-
     $http({
       method: 'POST',
-      url: basePath + '/user/jarellano/' + itemName,
+      url: basePath + '/user/' + $scope.username + '/' + itemName,
       data: $.param(item), //forms user object
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
@@ -90,7 +96,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
     });
   };
 
-  $scope.updateUser = function(){
+  $scope.updateUser = function () {
     var userData = angular.copy($scope.user);
     delete userData.username;
     delete userData.password;
@@ -104,19 +110,24 @@ app.controller('appController', function ($scope, $http, ModalService) {
     delete userData.project;
     $http({
       method: 'PUT',
-      url: basePath + '/user/jarellano/',
+      url: basePath + '/user/' + $scope.username,
       data: $.param(userData), //forms user object
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
       .then(function (data) {
         console.log(data.data);
         $scope.reloadData();
-        $scope.message = "it worked."; 
+        $scope.message = "it worked.";
       });
   }
 });
 
 app.controller('ModalController', function ($scope, options, close) {
+  $scope.icons = [
+    {name: "GitHub", class: "icon-github"},
+    {name: "Code", class: "icon-code"},
+
+  ];
   $scope.original = angular.copy(options.item);
   $scope.curItem = options.item;
   $scope.method = options.method;

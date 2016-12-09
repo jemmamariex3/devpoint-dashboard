@@ -23,48 +23,41 @@
         <div class="divide30"></div>
         <div class="form-container">
             <div class="response alert alert-success"></div>
-            <form class="forms" ng-submit="updateUser()" method="post">
+            <form class="forms" name="aboutForm" ng-submit="updateUser()" method="post">
                 <fieldset>
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="form-row text-input-row name-field">
-                                <label>First Name</label>
-                                <input type="text" name="name" class="text-input defaultText required"
-                                       ng-model="user.firstName"/>
-                            </div>
+                            <label>First Name</label>
+                            <input type="text" name="firstName" class="text-input defaultText"
+                                   ng-model="user.firstName" required/>
+                            <p ng-show="aboutForm.firstName.$invalid" class="help-block">Your First Name is required.</p>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-row text-input-row name-field">
-                                <label>Last Name</label>
-                                <input type="text" name="name" class="text-input defaultText required"
-                                       ng-model="user.lastName"/>
-                            </div>
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" class="text-input defaultText"
+                                   ng-model="user.lastName" required/>
+                            <p ng-show="aboutForm.lastName.$invalid" class="help-block">Your Last Name is required.</p>
                         </div>
                         <div class="col-md-12">
                             <div class="form-row text-input-row email-field">
                                 <label>Email</label>
-                                <input type="text" name="email" class="text-input defaultText required email"
-                                       ng-model="user.email"/>
+                                <input type="text" name="email" class="text-input defaultText required"
+                                       ng-model="user.email" required/>
+                                <p ng-show="aboutForm.email.$invalid" class="help-block">Your email is required.</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-row text-input-row subject-field">
-                                <label>Headline</label>
-                                <input type="text" name="headline" class="text-input defaultText required"
-                                       ng-model="user.headline"/>
-                            </div>
+                            <label>Headline</label>
+                            <input type="text" name="headline" class="text-input defaultText"
+                                   ng-model="user.headline" required/>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-row text-area-row">
-                                <label>Description</label>
-                                <textarea name="message" class="text-area required"
-                                          ng-model="user.description"></textarea>
-                            </div>
+                            <label>Description</label>
+                            <textarea name="message" class="text-area"
+                                      ng-model="user.description"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-row text-input-row name-field alert alert-danger">
-                            [[message]]
-                            </div>
+                            <input class="alert alert-success" ng-show="message" ng-model="message">
                         </div>
                         <div class="col-md-12">
                             <div class="button-row pull-right">
@@ -75,8 +68,6 @@
                                 <input type="reset" value="Clear Message" name="reset" class="btn btn-submit bm0"/>
                             </div>
                         </div>
-                        <input type="hidden" name="v_error" id="v-error" value="Required"/>
-                        <input type="hidden" name="v_email" id="v-email" value="Enter a valid email"/>
                     </div>
                 </fieldset>
             </form>
