@@ -2,7 +2,7 @@
     <div class="box skills">
         <div class="skills-1">
             <h2 class="section-title pull-left">My Skills</h2>
-              <button type="button" class="btn btn-info btn-lg pull-right" ng-click="show('skill')">
+            <button type="button" class="btn btn-info btn-lg pull-right" ng-click="show('skill')">
                 Add Skill
             </button>
 
@@ -15,11 +15,13 @@
                 <div class="col-xs-4 col-sm-3" ng-repeat="x in user.skill">
                     <!-- /.icon -->
                     <div class="text">
-                        <h4><i class="[[x.icon]]"></i>  [[x.name]]</h4>
-                        <a href ng-click="show('skill', [[x]])">Update</a> |
-                        <a href ng-click="deleteItem([[x.id]], 'skill')">Delete</a>
+                        <div class="text-center">
+                            <p><i class="[[x.icon]]"></i> [[x.name]]</p>
+                            <a href ng-click="show('skill', [[x]])">Update</a>
+
+                            <a href ng-click="deleteItem([[x.id]], 'skill')">Delete</a>
+                        </div>
                     </div>
-                  <br />
                     <!-- /.text -->
                 </div>
             </div>
