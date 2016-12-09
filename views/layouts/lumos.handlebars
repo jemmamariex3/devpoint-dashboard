@@ -8,7 +8,6 @@
     <!--<link rel="shortcut icon" href="style/images/favicon.png">-->
 
     <title>DEV POINT | TECH </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="/style/css/bootstrap.min.css" rel="stylesheet">
     <link href="/style/css/plugins.css" rel="stylesheet">
@@ -21,7 +20,7 @@
     <link href="/style/type/budicons.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]-->
-  <script src="/style/js/html5shiv.js"></script>
+  <!--<script src="/style/js/html5/shiv.js"></script>-->
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 </head>
 
@@ -33,13 +32,6 @@
 </div>
 
 <div class="body-wrapper" ng-controller="appController">
-
-
-    <h3>Angular Modal Service</h3>
-    <a class="btn btn-default" href ng-click="show('services')">Show a Modal</a>
-    <span>[[message]]</span>
-
-
   {{> navbar}}
 
   {{{body}}}
