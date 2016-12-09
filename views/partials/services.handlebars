@@ -11,20 +11,19 @@
 
             <div class="clearfix"></div>
             <div class="divide10"></div>
-
             <div class="row">
-                <div class="col-sm-4" ng-repeat="x in user.service">
-                    <!-- /.icon -->
-                    <div class="text-center">
-                        <p><h1 class="text-center"><i class="[[x.icon]]"></i></h1> <h5 class="text-center">[[x.name]]</h5></p>
-                        <p>[[x.description]]</p>
-                        <a href ng-click="show('service', [[x]])">Update</a> |
-                        <a href ng-click="deleteItem([[x.id]], 'service')">Delete</a>
+                    <div class="col-xs-4 col-sm-4" ng-repeat="x in user.service">
+                        <div class="text">
+                            <div class="text-center">
+                                <h1><i class="[[x.icon]]"></i></h1><h4>[[x.name]]</h4><p>[[x.service]]</p>
+                                <a href ng-click="show('service', [[x]])">Update</a> |
+                                <a href ng-click="deleteItem([[x.id]], 'service')">Delete</a>
+                            </div>
+                            <br>
+                        </div>
                     </div>
-                    <!-- /.text -->
                 </div>
 
-            </div>
         </div>
     </div>
     <!-- Modal -->

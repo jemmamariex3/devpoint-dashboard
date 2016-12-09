@@ -22,14 +22,15 @@
                 <div class="divide10"></div>
 
                 <div class="row">
-                    <div class="col-sm-4" ng-repeat="x in user.link">
+                    <div class="col-xs-4 col-sm-4" ng-repeat="x in user.link">
                         <div class="text">
-                            <h4><i class="[[x.icon]]"></i>  [[x.name]]</h4>
-                            <p>[[x.link]]</p>
-                            <a href ng-click="show('link', [[x]])">Update</a> |
-                            <a href ng-click="deleteItem([[x.id]], 'link')">Delete</a>
+                            <div class="text-center">
+                                <h4><i class="[[x.icon]]"></i> [[x.name]]</h4><p>[[x.link]]</p>
+                                <a href ng-click="show('link', [[x]])">Update</a> |
+                                <a href ng-click="deleteItem([[x.id]], 'link')">Delete</a>
+                            </div>
+                            <br>
                         </div>
-                        <br />
                     </div>
                 </div>
             </div>
