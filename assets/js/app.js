@@ -17,9 +17,32 @@ app.controller('appController', function ($scope, $http, ModalService) {
   $scope.username = "jarellano";
   //GLOBAL VARIABLES
   $scope.icons = [
-    {name: "GitHub", class: "icon-github"},
-    {name: "Code", class: "icon-code"},
-
+    
+    
+    {name: "Android", class: "fa fa-android"},
+    {name: "Apple", class: "fa fa-apple"},
+    {name: "Code", class: "fa fa-code"},
+    {name: "CSS3", class: "fa fa-css3"},
+    {name: "Codepen", class: "fa fa-codepen"},
+    {name: "Dribbble", class: "fa fa-dribbble"},
+    {name: "Facebook", class: "fa fa-facebook"},
+    {name: "GitHub", class: "fa fa-github-alt"},
+    {name: "Google Plus", class: "fa fa-google-plus"},
+    {name: "HTML5", class: "fa fa-html5"},
+    {name: "Instagram", class: "fa fa-instagram"},
+    {name: "LinkedIn", class: "fa fa-linkedin"},
+    {name: "Linux", class: "fa fa-linux"},
+    {name: "Reddit", class: "fa fa-reddit"},
+    {name: "Skype", class: "fa fa-skype"},
+    {name: "Slack", class: "fa fa-slack"},
+    {name: "Stack Overflow", class: "fa fa-stack-overflow"},
+    {name: "Soundcloud", class: "fa fa-soundcloud"},
+    {name: "Spotify", class: "fa fa-spotify"},
+    {name: "Trello", class: "fa fa-trello"},
+    {name: "Tumblr", class: "fa fa-tumblr"},
+    {name: "Twitter", class: "fa fa-twitter"},
+    {name: "Windows", class: "fa fa-windows"},
+    {name: "Youtube", class: "fa fa-youtube"},
   ];
 
   $scope.deleteItem = function (id, itemName) {
@@ -124,9 +147,30 @@ app.controller('appController', function ($scope, $http, ModalService) {
 
 app.controller('ModalController', function ($scope, options, close) {
   $scope.icons = [
-    {name: "GitHub", class: "icon-github"},
-    {name: "Code", class: "icon-code"},
-
+    {name: "Android", class: "fa fa-android"},
+    {name: "Apple", class: "fa fa-apple"},
+    {name: "Code", class: "fa fa-code"},
+    {name: "CSS3", class: "fa fa-css3"},
+    {name: "Codepen", class: "fa fa-codepen"},
+    {name: "Dribbble", class: "fa fa-dribbble"},
+    {name: "Facebook", class: "fa fa-facebook"},
+    {name: "GitHub", class: "fa fa-github-alt"},
+    {name: "Google Plus", class: "fa fa-google-plus"},
+    {name: "HTML5", class: "fa fa-html5"},
+    {name: "Instagram", class: "fa fa-instagram"},
+    {name: "LinkedIn", class: "fa fa-linkedin"},
+    {name: "Linux", class: "fa fa-linux"},
+    {name: "Reddit", class: "fa fa-reddit"},
+    {name: "Skype", class: "fa fa-skype"},
+    {name: "Slack", class: "fa fa-slack"},
+    {name: "Stack Overflow", class: "fa fa-stack-overflow"},
+    {name: "Soundcloud", class: "fa fa-soundcloud"},
+    {name: "Spotify", class: "fa fa-spotify"},
+    {name: "Trello", class: "fa fa-trello"},
+    {name: "Tumblr", class: "fa fa-tumblr"},
+    {name: "Twitter", class: "fa fa-twitter"},
+    {name: "Windows", class: "fa fa-windows"},
+    {name: "Youtube", class: "fa fa-youtube"},
   ];
   $scope.original = angular.copy(options.item);
   $scope.curItem = options.item;

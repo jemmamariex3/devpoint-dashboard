@@ -19,47 +19,11 @@
                     <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.name"/>
 
 
-                    <label>Icon</label>
+                    <label>Icon: <i class="[[curItem.icon]]"></i> </label>
 
-                    <select name="icon">
-                      <option value="budicon-code" ng-model="newItem.icon">budicon-code</option>
-                      <option value="icon" ng-model="icon-github">github-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-instagram">instagram-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-skype">skype-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-youtube">youtube-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-tumblr">tumblr-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-stackexchange">stack exchange-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-dribble">dribble-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-html5">html5-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-css3">css3-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-linux">linux-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-android">android-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-apple">apple-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-facebook">facebook-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-google-plus">google plus-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-linkedin">linkedin-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-pinterest">pinterest-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-twitter">twitter-icon</div>
-                      </option>
-                      <option value="icon" ng-model="icon-windows">windows-icon</div>
-                      </option>
-                    </select>
+                  <select name="icon" ng-model="curItem.icon" >
+                    <option value="[[x.class]]" ng-repeat="x in icons">[[x.name]]</option>
+                  </select>
 
                 </div>
                 <div class="col-sm-12">

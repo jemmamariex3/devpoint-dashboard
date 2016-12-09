@@ -13,21 +13,16 @@
             <div class="divide10"></div>
 
             <div class="row">
-
-                <div class="col-md-4 col-sm-6" ng-repeat="x in user.service">
-                    <div class="icon"><i class="budicon-code icn"></i></div>
+                <div class="col-xs-4 col-sm-6" ng-repeat="x in user.service">
                     <!-- /.icon -->
                     <div class="text">
-                        <h5>[[x.name]]</h5>
+                        <p><h1 class="text-center"><i class="[[x.icon]]"></i></h1> <h5 class="text-center">[[x.name]]</h5></p>
                         <p>[[x.description]]</p>
-
-                        <a href ng-click="show('service', [[x]])">Update</a>
-                        <a href ng-click="deleteItem([[x.id]], 'service')">Delete</a>
-
+                        <div class="text-center"><a href ng-click="show('service', [[x]])">Update</a>
+                        <a href ng-click="deleteItem([[x.id]], 'service')">Delete</a></div>
                     </div>
                     <!-- /.text -->
                 </div>
-
 
             </div>
         </div>
