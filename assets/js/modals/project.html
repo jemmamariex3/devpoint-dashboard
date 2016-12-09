@@ -1,0 +1,64 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <section>
+      <div class="modal-content box">
+
+        <div class="modal-body">
+          <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+                  aria-hidden="true">&times;</button>
+          <h2 class="modal-title">[[method]] Project </h2>
+        </div>
+        <div class="modal-body">
+          <form class="" ng-submit="createItem('project')">
+            <fieldset>
+              <div class="row">
+                <div class="col-sm-12">
+
+                  <label>Name</label>
+                  <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.name"/>
+
+
+                  <label>Category</label>
+                  <select name="icon" ng-model="curItem.category">
+                    <option value="[[x.class]]" ng-repeat="x in icons">[[x.name]]</option>
+                  </select>
+                </div>
+                <div class="col-sm-12">
+                  <label>Github</label>
+                  <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.github"/>
+                </div>
+                <div class="col-sm-12">
+                  <label>Live Demo</label>
+                  <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.liveDemo"/>
+                </div>
+                <div class="col-sm-12">
+                  <label>Other Link</label>
+                  <input type="text" name="name" class="text-input defaultText required" ng-model="curItem.other"/>
+                </div>
+                <div class="col-sm-12">
+                  <label>Description</label>
+                  <textarea name="description" class="text-area required" ng-model="curItem.description"></textarea>
+                </div>
+                <div class="col-sm-6">
+                  <div class="button-row pull-right">
+                    <button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Cancel
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="button-row pull-left">
+                    <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">
+                      [[method]]
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
