@@ -16,9 +16,8 @@
                     <!-- /.icon -->
                     <div class="text">
                         <div class="text-center">
-                            <p><i class="[[x.icon]]"></i> [[x.name]]</p>
-                            <a href ng-click="show('skill', [[x]])">Update</a>
-
+                            <h4><i class="[[x.icon]]"></i> [[x.name]]</h4>
+                            <a href ng-click="show('skill', [[x]])">Update</a> |
                             <a href ng-click="deleteItem([[x.id]], 'skill')">Delete</a>
                         </div>
                     </div>
@@ -27,6 +26,5 @@
             </div>
         </div>
     </div>
-  {{> modals/add-skill}}
 
 </section>
