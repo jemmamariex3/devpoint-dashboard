@@ -138,6 +138,20 @@ app.controller('appController', function ($scope, $http, ModalService) {
       });
   }
 });
+$scope.updateTemplate = function () {
+    $http({
+      method: 'PUT',
+      url: basePath + '/user/' + $scope.username,
+      data: $.param(userData.template), //forms user object
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+      .then(function (data) {
+        console.log(data.data);
+        $scope.reloadData();
+        $scope.message = "Saved";
+      });
+  }
+});
 
 app.controller('ModalController', function ($scope, options, close) {
   $scope.icons = [
