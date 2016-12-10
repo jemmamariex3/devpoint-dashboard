@@ -8,23 +8,21 @@
         <div class="clearfix"></div>
         <div class="divide10"></div>
         <div class="row" ng-repeat="x in user.project">
-            <div class="col-sm-12>
+            <div class="col-sm-12">
                 <h3>[[x.name | uppercase]]</h3>
                 <a href ng-click="show('project', [[x]])">Update</a> |
                 <a href ng-click="deleteItem([[x.id]], 'project')">Delete</a>
             </div>
             <div class="col-sm-4">
-                 <p ng-show="x.category"><b><u>Category:&nbsp</u></u></b> [[x.category]]</p>
-                <p ng-show="x.github"><b><u>Github:&nbsp</u></b> [[x.github]]</p>
-                <p ng-show="x.liveDemo"><b><u>Live Demo:&nbsp</u></b> [[x.liveDemo]]</p>
-                <p ng-show="x.other"><b><u>Other:&nbsp</u></b> [[x.other]]</p>
-                <p><u><b>Description:</b></u></p>
-                <p>[[x.description]]</p>
+                <p ng-show="x.category"><b>Category:</b> [[x.category]]</p>
+                <p ng-show="x.github"><b>Github:</b> [[x.github]]</p>
+                <p ng-show="x.liveDemo"><b>Live Demo:</b> [[x.liveDemo]]</p>
+                <p ng-show="x.other"><b>Other:</b> [[x.other]]</p>
             </div>
-           {{!--  <div class="col-sm-6">
+            <div class="col-sm-6">
                 <p><b>Description:</b></p>
                 <p>[[x.description]]</p>
-            </div> --}}
+            </div>
         </div>
     </div>
 </section>
