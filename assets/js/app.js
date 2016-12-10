@@ -1,15 +1,9 @@
 var app = angular.module("myApp", ['angularModalService']);
 
-
 app.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
-
-app.service('sharedData', function () {
-  // $scope
-});
-
 
 app.controller('appController', function ($scope, $http, ModalService) {
   // var basePath = 'http://localhost:3001';
@@ -17,8 +11,8 @@ app.controller('appController', function ($scope, $http, ModalService) {
   $scope.username = "jarellano";
   //GLOBAL VARIABLES
   $scope.icons = [
-    
-    
+
+
     {name: "Android", class: "fa fa-android"},
     {name: "Apple", class: "fa fa-apple"},
     {name: "Code", class: "fa fa-code"},
