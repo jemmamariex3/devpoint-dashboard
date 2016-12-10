@@ -71,12 +71,11 @@
   };
 
 // transport
-  if (typeof define === 'function' && define.amd) {
-    // AMD
-    define(classie);
-  } else {
-    // browser global
-    window.classie = classie;
-  }
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( classie );
+} else {
+  // browser global
+  window.classie = classie;
+}
 })( window );
-
