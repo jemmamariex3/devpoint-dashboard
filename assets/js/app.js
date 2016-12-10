@@ -134,7 +134,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
       .then(function (data) {
         console.log(data.data);
         $scope.reloadData();
-        $scope.message = "it worked.";
+        $scope.message = "Saved";
       });
   }
 });

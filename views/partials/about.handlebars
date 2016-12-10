@@ -2,7 +2,7 @@
     <div class="box">
         <h2 class="section-title">About Me</h2>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <img id='img-upload' ng-src="[[user.profileImage]]" />
                 <label>Change Image</label>
                 <div class="input-group">
@@ -13,11 +13,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-5">
                 <div class="clearfix"></div>
                 <div class="divide10"></div>
                 <div class="row">
-
                     <div class="col-xs-12" ng-repeat="x in user.link">
                         <div class="text">
                             <div>
@@ -33,58 +32,71 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <h3>Templates</h3>
+                    <select name="two" class="dropdown-select">
+                        <option value="">Select…</option>
+                        <option value="Template1">Template #1</option>
+                        <option value="Template2">Template #2</option>
+                        <option value="Template3">Template #3</option>
+                    </select>
+                    <button type="button" class="btn btn-default">Reset</button>
+                    <button type="button" class="btn btn-default">Save</button>
+                    <button type="button" class="btn btn-default">Launch</button>
+                </div>
+            </div>
         </div>
-        <!-- /.services-2 -->
-        <div class="divide30"></div>
-        <div class="form-container">
-            <div class="response alert alert-success"></div>
-            <form class="forms" name="aboutForm" ng-submit="updateUser()" method="post">
-                <fieldset>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label>First Name</label>
-                            <input type="text" name="firstName" class="text-input defaultText" ng-model="user.firstName" required/>
-                            <p ng-show="aboutForm.firstName.$invalid" class="help-block">Your First Name is required.
-                            </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Last Name</label>
-                            <input type="text" name="lastName" class="text-input defaultText" ng-model="user.lastName" required/>
-                            <p ng-show="aboutForm.lastName.$invalid" class="help-block">Your Last Name is required.</p>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-row text-input-row email-field">
-                                <label>Email</label>
-                                <input type="text" name="email" class="text-input defaultText required" ng-model="user.email" required/>
-                                <p ng-show="aboutForm.email.$invalid" class="help-block">Your email is required.</p>
+        <div class="row">
+            <!-- /.services-2 -->
+            <div class="divide30"></div>
+            <div class="form-container">
+                <div class="response alert alert-success"></div>
+                <form class="forms" name="aboutForm" ng-submit="updateUser()" method="post">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" class="text-input defaultText" ng-model="user.firstName" required/>
+                                <p ng-show="aboutForm.firstName.$invalid" class="help-block">Your First Name is required.
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" class="text-input defaultText" ng-model="user.lastName" required/>
+                                <p ng-show="aboutForm.lastName.$invalid" class="help-block">Your Last Name is required.</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-row text-input-row email-field">
+                                    <label>Email</label>
+                                    <input type="text" name="email" class="text-input defaultText required" ng-model="user.email" required/>
+                                    <p ng-show="aboutForm.email.$invalid" class="help-block">Your email is required.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Headline</label>
+                                <input type="text" name="headline" class="text-input defaultText" ng-model="user.headline" required/>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Description</label>
+                                <textarea name="message" class="text-area" ng-model="user.description"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="alert alert-success" ng-show="message" ng-model="message">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="button-row pull-right">
+                                    <input type="submit" class="btn btn-submit bm0" />
+                                </div>
+                                <div class="button-row pull-right">
+                                    <input type="reset" value="Clear Message" name="reset" class="btn btn-submit bm0" />
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <label>Headline</label>
-                            <input type="text" name="headline" class="text-input defaultText" ng-model="user.headline" required/>
-                        </div>
-                        <div class="col-md-12">
-                            <label>Description</label>
-                            <textarea name="message" class="text-area" ng-model="user.description"></textarea>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-row text-input-row name-field alert alert-danger" style="display:none;">
-                                [[message]]
-                            </div>
-                            <input class="alert alert-success" ng-show="message" ng-model="message">
-                        </div>
-                        <div class="col-md-12">
-                            <div class="button-row pull-right">
-                                <input type="submit" class="btn btn-submit bm0" />
-                            </div>
-                            <div class="button-row pull-right">
-                                <input type="reset" value="Clear Message" name="reset" class="btn btn-submit bm0" />
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-            <!-- /.form-container -->
+                    </fieldset>
+                </form>
+                <!-- /.form-container -->
+            </div>
         </div>
     </div>
     <!-- /.box -->
