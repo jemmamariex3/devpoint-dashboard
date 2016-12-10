@@ -21,13 +21,12 @@
                 <div class="clearfix"></div>
                 <div class="divide10"></div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12" ng-repeat="x in user.link">
+                    <div class="col-sm-3" ng-repeat="x in user.link">
                         <div class="text">
-                            <div class="container-fluid">
-                                <h3><i class="[[x.icon]]"></i></h3> [[x.link]]
-                                <a href ng-click="show('link', [[x]])">Update</a> |
-                                <a href ng-click="deleteItem([[x.id]], 'link')">Delete</a>
-                            </div>
+                            <u><h4><i class="[[x.icon]]"></i> - [[x.name]]</h4></u>
+                            <p>[[x.link]]</p>
+                            <a href ng-click="show('link', [[x]])">Update</a> |
+                            <a href ng-click="deleteItem([[x.id]], 'link')">Delete</a>
                         </div>
                     </div>
                 </div>
