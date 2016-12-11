@@ -1,9 +1,17 @@
-var app = angular.module("myApp", ['angularModalService']);
+var app = angular.module("myApp", ['angularModalService', 'cloudinary']);
 
 app.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
+
+function configure(CloudinaryProvider) {
+  CloudinaryProvider.configure({
+    cloud_name: 'your cloud name',
+    api_key: 'your api key'
+  });
+}
+app.config(configure);
 
 app.directive('fileModel', ['$parse', function ($parse) {
   return {
