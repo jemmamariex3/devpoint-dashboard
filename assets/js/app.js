@@ -155,7 +155,7 @@ app.controller('appController', [ '$scope', '$http', 'ModalService', 'fileUpload
     $http({
       method: 'PUT',
       url: basePath + '/user/' + $scope.username,
-      data: $.param(user.template), //forms user object
+      data: $.param({template: $scope.user.template}), //forms user object
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
       .then(function (data) {
