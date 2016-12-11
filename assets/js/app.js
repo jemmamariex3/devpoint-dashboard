@@ -5,39 +5,52 @@ app.config(function ($interpolateProvider) {
   $interpolateProvider.endSymbol(']]');
 });
 
-app.controller('appController', function ($scope, $http, ModalService) {
+app.directive('fileModel', ['$parse', function ($parse) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      var model = $parse(attrs.fileModel);
+      var modelSetter = model.assign;
+
+      element.bind('change', function(){
+        scope.$apply(function(){
+          modelSetter(scope, element[0].files[0]);
+        });
+      });
+    }
+  };
+}]);
+
+app.service('fileUpload', ['$http', function ($http) {
+  this.uploadFileToUrl = function(file, uploadUrl){
+    var fd = new FormData();
+    fd.append('file', file);
+
+    $http.post(uploadUrl, fd, {
+      transformRequest: angular.identity,
+      headers: {'Content-Type': undefined}
+    })
+
+      .success(function(){
+
+      })
+
+      .error(function(){
+      });
+  }
+}]);
+
+app.controller('appController', [ '$scope', '$http', 'ModalService', 'fileUpload',function ($scope, $http, ModalService, fileUpload) {
   // var basePath = 'http://localhost:3001';
   var basePath = 'https://devpoint-api.herokuapp.com';
   $scope.username = "jarellano";
   //GLOBAL VARIABLES
-  $scope.icons = [
 
-
-    {name: "Android", class: "fa fa-android"},
-    {name: "Apple", class: "fa fa-apple"},
-    {name: "Code", class: "fa fa-code"},
-    {name: "CSS3", class: "fa fa-css3"},
-    {name: "Codepen", class: "fa fa-codepen"},
-    {name: "Dribbble", class: "fa fa-dribbble"},
-    {name: "Facebook", class: "fa fa-facebook"},
-    {name: "GitHub", class: "fa fa-github-alt"},
-    {name: "Google Plus", class: "fa fa-google-plus"},
-    {name: "HTML5", class: "fa fa-html5"},
-    {name: "Instagram", class: "fa fa-instagram"},
-    {name: "LinkedIn", class: "fa fa-linkedin"},
-    {name: "Linux", class: "fa fa-linux"},
-    {name: "Reddit", class: "fa fa-reddit"},
-    {name: "Skype", class: "fa fa-skype"},
-    {name: "Slack", class: "fa fa-slack"},
-    {name: "Stack Overflow", class: "fa fa-stack-overflow"},
-    {name: "Soundcloud", class: "fa fa-soundcloud"},
-    {name: "Spotify", class: "fa fa-spotify"},
-    {name: "Trello", class: "fa fa-trello"},
-    {name: "Tumblr", class: "fa fa-tumblr"},
-    {name: "Twitter", class: "fa fa-twitter"},
-    {name: "Windows", class: "fa fa-windows"},
-    {name: "Youtube", class: "fa fa-youtube"},
-  ];
+  $scope.uploadFile = function(){
+    var file = $scope.myFile;
+    var uploadUrl = basePath + "/user/" + $scope.username + "/image'";
+    fileUpload.uploadFileToUrl(file, uploadUrl);
+  };
 
   $scope.deleteItem = function (id, itemName) {
     $http.delete(basePath + "/user/" + $scope.username + "/" + itemName + "/" + id).then(function (response) {
@@ -151,7 +164,7 @@ app.controller('appController', function ($scope, $http, ModalService) {
         $scope.message = "Saved";
       });
   }
-});
+}]);
 
 
 
