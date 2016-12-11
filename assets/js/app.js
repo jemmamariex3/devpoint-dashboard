@@ -136,9 +136,9 @@ app.controller('appController', function ($scope, $http, ModalService) {
         $scope.reloadData();
         $scope.message = "Saved";
       });
-  }
-});
-$scope.updateTemplate = function () {
+  };
+
+  $scope.updateTemplate = function () {
     $http({
       method: 'PUT',
       url: basePath + '/user/' + $scope.username,
@@ -152,6 +152,8 @@ $scope.updateTemplate = function () {
       });
   }
 });
+
+
 
 app.controller('ModalController', function ($scope, options, close) {
   $scope.icons = [
