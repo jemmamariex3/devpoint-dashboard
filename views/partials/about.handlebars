@@ -45,8 +45,9 @@
                     <select name="two" class="dropdown-select" ng-model="user.template">
                         <option value="">Select…</option>
                         <option value="Template1">Template #1</option>
+                        <option value="Template2">Template #2</option>
                     </select>
-                    <button type="button" class="btn btn-default">Reset</button>
+                    <button type="button" class="btn btn-default" data-ng-show="!editing" ng-click="">Reset</button>
                     <button type="button" class="btn btn-default" ng-click="updateTemplate()">Save</button>
                     <button type="button" class="btn btn-default">Launch</button>
                 </div>

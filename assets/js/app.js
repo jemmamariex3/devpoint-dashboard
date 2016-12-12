@@ -172,6 +172,21 @@ app.controller('appController', [ '$scope', '$http', 'ModalService', 'fileUpload
         $scope.message = "Saved";
       });
   }
+}]);  
+$scope.revertTemplate = function () {
+  var userData = angular.copy($scope.template);
+    $http({
+      method: 'PUT',
+      url: basePath + '/user/' + $scope.username,
+      data: $.param({template: $scope.user.template}), //forms user object
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+      .then(function (data) {
+        console.log(data.data);
+        $scope.reloadData();
+        $scope.message = "Saved";
+      });
+  }
 }]);
 
 
