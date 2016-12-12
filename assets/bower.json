@@ -1,0 +1,28 @@
+{
+  "name": "assets",
+  "homepage": "https://github.com/jarellano01/devpoint-dashboard",
+  "authors": [
+    "Jonathan Arellano <jonathan.arellano.216@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-cloudinary": "^1.2.4",
+    "ng-file-upload": "^11.0.2",
+    "angular": "1.4.x",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x",
+    "angular-animate": "1.4.x",
+    "cloudinary_ng": "~1.0.0",
+    "ng-image-input-with-preview": "^0.0.6",
+    "angular-file-selector": "^0.0.2"
+  }
+}

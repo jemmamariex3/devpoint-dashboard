@@ -1,27 +1,19 @@
-var app = angular.module("myApp", ['angularModalService', 'cloudinary']);
+var app = angular.module("myApp", ['angularModalService', 'angular-cloudinary','ngImageInputWithPreview', 'tehwalris.file-selector']);
 
 app.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
 
-function configure(CloudinaryProvider) {
-  CloudinaryProvider.configure({
-    cloud_name: 'your cloud name',
-    api_key: 'your api key'
-  });
-}
-app.config(configure);
-
 app.directive('fileModel', ['$parse', function ($parse) {
   return {
     restrict: 'A',
-    link: function(scope, element, attrs) {
+    link: function (scope, element, attrs) {
       var model = $parse(attrs.fileModel);
       var modelSetter = model.assign;
 
-      element.bind('change', function(){
-        scope.$apply(function(){
+      element.bind('change', function () {
+        scope.$apply(function () {
           modelSetter(scope, element[0].files[0]);
         });
       });
@@ -29,35 +21,45 @@ app.directive('fileModel', ['$parse', function ($parse) {
   };
 }]);
 
-app.service('fileUpload', ['$http', function ($http) {
-  this.uploadFileToUrl = function(file, uploadUrl){
-    var fd = new FormData();
-    fd.append('file', file);
+app.config(function (cloudinaryProvider) {
+  cloudinaryProvider.config({
+    upload_endpoint: 'https://api.cloudinary.com/v1_1/', // default
+    cloud_name: 'dsnpiaom4', // required
+    upload_preset: 'exhyeshg', // optional
+  });
+});
 
-    $http.post(uploadUrl, fd, {
-      transformRequest: angular.identity,
-      headers: {'Content-Type': undefined}
-    })
-
-      .success(function(){
-
-      })
-
-      .error(function(){
-      });
-  }
-}]);
-
-app.controller('appController', [ '$scope', '$http', 'ModalService', 'fileUpload',function ($scope, $http, ModalService, fileUpload) {
+app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary', function ($scope, $http, ModalService, cloudinary) {
   // var basePath = 'http://localhost:3001';
   var basePath = 'https://devpoint-api.herokuapp.com';
   $scope.username = "jarellano";
   //GLOBAL VARIABLES
 
-  $scope.uploadFile = function(){
-    var file = $scope.myFile;
-    var uploadUrl = basePath + "/user/" + $scope.username + "/image'";
-    fileUpload.uploadFileToUrl(file, uploadUrl);
+  $scope.uploadFile = function (file) {
+
+      $scope.profileImage = file;
+      $scope.user.profileImage = "cbp-loading_r11wc2.gif";
+
+      console.log(file);
+
+      cloudinary.upload(file, {public_id: $scope.user.username})
+      // This returns a promise that can be used for result handling
+        .then(function (resp) {
+          console.log(resp.data);
+          $http({
+            method: 'PUT',
+            url: basePath + '/user/' + $scope.username,
+            data: $.param({profileImage: resp.data.public_id}), //forms user object
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          })
+            .then(function (data) {
+              console.log(data.data);
+              $scope.reloadData();
+              $scope.message = "Saved";
+            });
+        });
+
+
   };
 
   $scope.deleteItem = function (id, itemName) {
@@ -173,7 +175,6 @@ app.controller('appController', [ '$scope', '$http', 'ModalService', 'fileUpload
       });
   }
 }]);
-
 
 
 app.controller('ModalController', function ($scope, options, close) {
