@@ -51,19 +51,21 @@
         <div class="form-container">
             <div class="response alert alert-success"></div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>UserName</label>
                     <input type="text" name="username" class="text-input defaultText required"
                            ng-model="user.username" required/>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Email</label>
                     <input type="text" name="email" class="text-input defaultText required"
                            ng-model="user.email" required/>
                 </div>
             </div>
-
+            <button type="button" class="btn btn-default">Change Password</button>
+            <br>
             <form class="forms" name="aboutForm" ng-submit="updateProfile()" method="post">
+            <h1>My Info</h1>
                 <fieldset>
                     <div class="row">
                         <div class="col-sm-6">
