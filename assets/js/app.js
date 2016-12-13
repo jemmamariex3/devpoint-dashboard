@@ -80,7 +80,9 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
     });
   };
   $scope.reloadData();
-
+  $scope.updateProfile = function(){
+    $scope.createItem("profile", $scope.user.profile[0]);
+  };
   $scope.createItem = function (itemName, item) {
     // Posting data to php file
     delete item.userId;
