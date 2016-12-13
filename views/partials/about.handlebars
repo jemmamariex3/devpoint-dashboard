@@ -54,8 +54,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <label>UserName</label>
-                    <input type="text" name="username" class="text-input defaultText required"
-                           ng-model="user.username" required/>
+                    {{!-- <input type="text" name="username" class="text-input defaultText required"
+                           ng-model="user.username" required/> --}}
+                    <p placeholder="username">[[user.profile.email]]</p>
                 </div>
                 <div class="col-md-6">
                     <label>Email</label>
