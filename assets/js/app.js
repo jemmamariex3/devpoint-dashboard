@@ -46,17 +46,8 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
       // This returns a promise that can be used for result handling
         .then(function (resp) {
           console.log(resp.data);
-          $http({
-            method: 'PUT',
-            url: basePath + '/user/' + $scope.username,
-            data: $.param({profileImage: resp.data.public_id}), //forms user object
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-          })
-            .then(function (data) {
-              console.log(data.data);
-              $scope.reloadData();
-              $scope.message = "Saved";
-            });
+          $scope.user.profile[0].profileImage = resp.data.public_id;
+          updateProfile();
         });
 
 
