@@ -1,0 +1,5 @@
+.service-description{
+	word-wrap: break-word;
+	height: 100px;
+	overflow-x: hidden;
+}
