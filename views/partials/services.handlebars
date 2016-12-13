@@ -12,10 +12,11 @@
             {{!-- <div class="clearfix"></div>
             <div class="divide10"></div> --}}
             <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="x in user.service" id="serviceBox">
+                    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="x in user.service">
                         <div class="text">
                             <div class="text-center">
-                                <h1><i class="[[x.icon]]"></i></h1><h4>[[x.name]]</h4><p>[[x.service]][[x.description]]</p>
+                                <h1><i class="[[x.icon]]"></i></h1><h4>[[x.name]]</h4>
+                                <p class="service-description">[[x.service]][[x.description]]</p>
                                 <a href ng-click="show('service', [[x]])">Update</a> |
                                 <a href ng-click="deleteItem([[x.id]], 'service')">Delete</a>
                             </div>

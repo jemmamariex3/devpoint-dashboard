@@ -1,5 +1,5 @@
-#serviceBox{
+.service-description{
 	word-wrap: break-word;
-	height: 190px;
-	overflow: hidden;
+	height: 100px;
+	overflow-x: hidden;
 }
