@@ -36,12 +36,10 @@
                     <h3>Templates</h3>
 
 
-                    <select name="two" class="dropdown-select" ng-model="user.template">
+                    <select name="two" class="dropdown-select" ng-model="user.profile[0].template">
                         <option value="">Select…</option>
                         <option value="Template1">Template #1</option>
                     </select>
-                    <button type="button" class="btn btn-default">Reset</button>
-                    <button type="button" class="btn btn-default" ng-click="updateTemplate()">Save</button>
                     <button type="button" class="btn btn-default">Launch</button>
                 </div>
             </div>

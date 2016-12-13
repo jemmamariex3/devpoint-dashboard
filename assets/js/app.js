@@ -47,7 +47,6 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
         .then(function (resp) {
           console.log(resp.data);
           $scope.user.profile[0].profileImage = resp.data.public_id;
-          updateProfile();
         });
 
 
