@@ -168,7 +168,6 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
   }
 }]);
 
-
 app.controller('ModalController', function ($scope, options, close) {
   $scope.icons = [
     {name: "Android", class: "fa fa-android"},
