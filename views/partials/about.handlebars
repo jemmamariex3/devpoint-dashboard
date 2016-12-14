@@ -49,17 +49,18 @@
         <div class="divide30"></div>
         <div class="form-container">
             <div class="response alert alert-success"></div>
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-md-6">
                     <label>UserName</label>
                     {{!-- <input type="text" name="username" class="text-input defaultText required"
                            ng-model="user.username" required/> --}}
-                    <p placeholder="username">[[user.profile.email]]</p>
+                    <h3>[[user.username]]</h3>
                 </div>
                 <div class="col-md-6">
                     <label>Email</label>
-                    <input type="text" name="email" class="text-input defaultText required"
-                           ng-model="user.email" required/>
+                    {{!-- <input type="text" name="email" class="text-input defaultText required"
+                           ng-model="user.email" required/> --}}
+                    <h3>[[user.email]]</h3>
                 </div>
             </div>
             <button type="button" class="btn btn-default">Change Password</button>

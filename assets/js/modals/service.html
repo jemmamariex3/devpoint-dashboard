@@ -21,7 +21,10 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <label>Description</label>
-                                    <textarea name="description" class="text-area required" ng-model="curItem.description"></textarea>
+                                    <!-- <textarea name="description" class="text-area required" ng-model="curItem.description"></textarea> -->
+                                    <textarea onkeyup="textCounter(this,'counter',150);" id="message" name="description" ng-model="curItem.description">
+                                    </textarea>
+                                    <input disabled maxlength="3" size="3" value="150" id="counter">
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="button-row pull-right">
