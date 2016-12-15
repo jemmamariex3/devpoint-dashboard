@@ -210,3 +210,14 @@ app.controller('ModalController', function ($scope, options, close) {
   };
 
 });
+// var app = angular.module("myApp", ["ngRoute"]);
+// app.config(function($routeProvider) {
+//     $routeProvider
+//     .when("/", {
+//         templateUrl : ""
+//     })
+//     .when("/login", {
+//         templateUrl : ""
+//     });
+// });
+
