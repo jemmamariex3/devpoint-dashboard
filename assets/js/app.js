@@ -38,7 +38,6 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
   $scope.uploadFile = function (file) {
 
       $scope.profileImage = file;
-      $scope.user.profileImage[0] = "cbp-loading_r11wc2.gif";
 
       console.log(file);
 
