@@ -1,0 +1,29 @@
+<section id="skills" class="skills">
+    <div class="box skills">
+        <div class="skills-1">
+            <h2 class="section-title pull-left">My Skills</h2>
+            <button type="button" class="btn btn-info btn-lg pull-right" ng-click="show('skill')">
+                Add Skill
+            </button>
+
+
+            <div class="clearfix"></div>
+            <div class="divide10"></div>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="x in user.skill">
+                    <!-- /.icon -->
+                    <div class="text">
+                        <div class="text-center">
+                            <h4><i class="[[x.icon]]"></i> [[x.name]]</h4>
+                            <a href ng-click="show('skill', [[x]])">Update</a> |
+                            <a href ng-click="deleteItem([[x.id]], 'skill')">Delete</a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

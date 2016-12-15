@@ -2,3 +2,9 @@
 	word-wrap: break-word;
 	height: 100px;
 }
+
+.login-box {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}

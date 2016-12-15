@@ -1,0 +1,28 @@
+<section id="portfolio" class="portfolio">
+    <div class="box">
+        <h2 class="section-title pull-left">My Portfolio</h2>
+        <button type="button" class="btn btn-info btn-lg pull-right" ng-click="show('project')">
+            Add Project
+        </button>
+
+        <div class="clearfix"></div>
+        <div class="divide10"></div>
+        <div class="row" ng-repeat="x in user.project">
+            <div class="col-sm-12">
+                <h3>[[x.name | uppercase]]</h3>
+                <a href ng-click="show('project', [[x]])">Update</a> |
+                <a href ng-click="deleteItem([[x.id]], 'project')">Delete</a>
+            </div>
+            <div class="col-sm-4">
+                <p ng-show="x.category"><b>Category:</b> [[x.category]]</p>
+                <p ng-show="x.github"><b>Github:</b> [[x.github]]</p>
+                <p ng-show="x.liveDemo"><b>Live Demo:</b> [[x.liveDemo]]</p>
+                <p ng-show="x.other"><b>Other:</b> [[x.other]]</p>
+            </div>
+            <div class="col-sm-6">
+                <p><b>Description:</b></p>
+                <p>[[x.description]]</p>
+            </div>
+        </div>
+    </div>
+</section>

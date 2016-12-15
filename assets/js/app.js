@@ -1,8 +1,20 @@
-var app = angular.module("myApp", ['angularModalService', 'angular-cloudinary','ngImageInputWithPreview', 'tehwalris.file-selector']);
+var app = angular.module("myApp", ['angularModalService', 'angular-cloudinary', 'tehwalris.file-selector', "ngRoute"]);
 
 app.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
+});
+
+app.config(function($routeProvider) {
+  $routeProvider
+      .when("/", {
+        templateUrl : "pages/dashboard.html",
+        controller : "appController"
+      })
+      .when("/login", {
+        templateUrl : "pages/login.html",
+        controller : "login"
+      })
 });
 
 app.directive('fileModel', ['$parse', function ($parse) {
@@ -27,6 +39,10 @@ app.config(function (cloudinaryProvider) {
     cloud_name: 'dsnpiaom4', // required
     upload_preset: 'exhyeshg', // optional
   });
+});
+
+app.controller('login', function($scope, $http){
+
 });
 
 app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary', function ($scope, $http, ModalService, cloudinary) {
