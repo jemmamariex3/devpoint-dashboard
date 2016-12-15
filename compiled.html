@@ -39,8 +39,8 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header"> <a class="btn responsive-menu" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
         <div class="navbar-brand text-center">
-            <a href="/" class="hidden-xs"><img src="style/images/devPointLogo.png" alt="" data-src="style/images/devPointLogo.png" data-ret="style/images/devPointLogo.png" class="retina" /></a>
-            <a href="/" class="visible-xs"><img src="style/images/devPointLogo.png" alt="" data-src="style/images/devPointLogo.png" data-ret="style/images/devPointLogo.png" class="retina" /></a>
+            <a href="/" class="hidden-xs"><img src="assets/style/images/devPointLogo.png" alt="" data-src="assets/style/images/devPointLogo.png" data-ret="assets/style/images/devPointLogo.png" class="retina" /></a>
+            <a href="/" class="visible-xs"><img src="assets/style/images/devPointLogo.png" alt="" data-src="assets/style/images/devPointLogo.png" data-ret="assets/style/images/devPointLogo.png" class="retina" /></a>
 
             <span class="hidden-lg hidden-xs">Jonathan Arellano</span>
         </div>
@@ -89,7 +89,7 @@
                 <img cl-src="[[user.profile[0].profileImage]]"
                      dpr="auto"
                      fetch-format="auto"
-                     ng-show="user.profileImage" class="img-responsive">
+                     ng-show="user.profile[0].profileImage" class="img-responsive">
                      <br>
                 <button class="btn" file-selector on-select="uploadFile(file)" accept=".jpg, .png, .jpeg">Change Image
                 </button>
@@ -144,7 +144,7 @@
             <button type="button" class="btn btn-default">Change Password</button>
               <div class="divide30"></div>
             <br>
-            <form class="forms" name="aboutForm" ng-submit="updateProfile()" method="post">
+            <form class="forms" name="aboutForm" >
             <h1>My Info</h1>
                 <fieldset>
                     <div class="row">
@@ -183,10 +183,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="button-row pull-right">
-                                <input type="submit" class="btn btn-submit bm0"/>
-                            </div>
-                            <div class="button-row pull-right">
-                                <input type="reset" value="Clear Message" name="reset" class="btn btn-submit bm0"/>
+                              <button class="btn btn-default" ng-click="updateProfile()">Save</button>
                             </div>
                         </div>
                     </div>
@@ -312,7 +309,6 @@
 <script src="assets/bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
 <script src="assets/bower_components/ng-file-upload/ng-file-upload.js"></script>
 <script src="assets/bower_components/angular-cloudinary/angular-cloudinary.js"></script>
-<script type="text/javascript" src="assets/bower_components/ng-image-input-with-preview/dist/ng-image-input-with-preview.js"></script>
 <script src="assets/bower_components/angular-file-selector/angular-file-selector.js"></script>
 
 

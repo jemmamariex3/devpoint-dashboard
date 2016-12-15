@@ -100,7 +100,7 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
       method = "Update";
     }
     ModalService.showModal({
-      templateUrl: '/js/modals/' + itemName + '.html',
+      templateUrl: 'assets/js/modals/' + itemName + '.html',
       controller: "ModalController",
       inputs: {
         options: {
