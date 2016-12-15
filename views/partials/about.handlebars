@@ -7,7 +7,7 @@
                 <img cl-src="[[user.profile[0].profileImage]]"
                      dpr="auto"
                      fetch-format="auto"
-                     ng-show="user.profileImage" class="img-responsive">
+                     ng-show="user.profile[0].profileImage" class="img-responsive">
                      <br>
                 <button class="btn" file-selector on-select="uploadFile(file)" accept=".jpg, .png, .jpeg">Change Image
                 </button>

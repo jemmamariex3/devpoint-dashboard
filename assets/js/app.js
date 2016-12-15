@@ -32,13 +32,12 @@ app.config(function (cloudinaryProvider) {
 app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary', function ($scope, $http, ModalService, cloudinary) {
   // var basePath = 'http://localhost:3001';
   var basePath = 'https://devpoint-api.herokuapp.com';
-  $scope.username = "jarellano";
+  $scope.username = "rlopez";
   //GLOBAL VARIABLES
 
   $scope.uploadFile = function (file) {
 
       $scope.profileImage = file;
-      $scope.user.profileImage = "cbp-loading_r11wc2.gif";
 
       console.log(file);
 
@@ -48,8 +47,6 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
           console.log(resp.data);
           $scope.user.profile[0].profileImage = resp.data.public_id;
         });
-
-
   };
 
   $scope.deleteItem = function (id, itemName) {
