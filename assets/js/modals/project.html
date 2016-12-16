@@ -37,7 +37,10 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <label>Description</label>
-                                    <!-- <textarea name="description" class="text-area required" ng-model="curItem.description"></textarea> -->
+                                    <div ng-form="projectForm">
+                                        <textarea ng-maxlength="150" ng-model="curItem.description"></textarea>
+                                        <p>Max Characters of 150</p>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="button-row pull-right">
@@ -47,7 +50,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="button-row pull-left">
-                                        <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">
+                                        <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal" ng-disabled="!projectForm.$valid">
                                             [[method]]
                                         </button>
                                     </div>
