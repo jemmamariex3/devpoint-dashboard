@@ -1,4 +1,4 @@
-app.factory('AuthenticationService', function ($http, $localStorage) {
+app.factory('AuthenticationService', function ($http, $localStorage, $location) {
     var service = {};
 
     service.Login = Login;
@@ -17,15 +17,16 @@ app.factory('AuthenticationService', function ($http, $localStorage) {
             data: $.param(data), //forms user object
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-            .then(function (data) {
-                console.log(response);
+            .then(function (response) {
+                console.log(response.data);
                 // login successful if there's a token in the response
-                if (response.token) {
+                if (response.data.token) {
                     // store username and token in local storage to keep user logged in between page refreshes
-                    $localStorage.currentUser = {username: username, token: response.token};
-
+                    //$localStorage.currentUser = {username: username, token: response.data.token};
+                    $localStorage.username = response.data.username;
+                    $localStorage.token = response.data.token;
                     // add jwt token to auth header for all requests made by the $http service
-                    $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
+                    //$http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
 
                     // execute callback with true to indicate successful login
                     callback(true);
@@ -36,9 +37,13 @@ app.factory('AuthenticationService', function ($http, $localStorage) {
             });
     }
 
+
+
     function Logout() {
         // remove user from local storage and clear http auth header
-        delete $localStorage.currentUser;
-        $http.defaults.headers.common.Authorization = '';
+        delete $localStorage.token;
+        delete $localStorage.username;
+        $location.path('/login');
+        //$http.defaults.headers.common.Authorization = '';
     }
 });

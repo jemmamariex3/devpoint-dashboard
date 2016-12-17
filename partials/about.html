@@ -3,6 +3,8 @@
         <h2 class="section-title">About Me</h2>
         <div class="row">
 
+            <button ng-click="shoot()"></button>
+
             <div class="col-sm-3">
                 <img cl-src="[[user.profile[0].profileImage]]"
                      dpr="auto"
@@ -12,6 +14,7 @@
                 <button class="btn" file-selector on-select="uploadFile(file)" accept=".jpg, .png, .jpeg">Change
                     Image
                 </button>
+                <button class="btn btn-default" ng-click="shoot()">shoot</button>
             </div>
 
             <div class="col-sm-5">

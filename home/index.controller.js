@@ -1,8 +1,17 @@
-app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary', function ($scope, $http, ModalService, cloudinary) {
+app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary', 'AuthenticationService','$localStorage', function ($scope, $http, ModalService, cloudinary, AuthenticationService, $localStorage) {
     // var basePath = 'http://localhost:3001';
     var basePath = 'https://devpoint-api.herokuapp.com';
-    $scope.username = "rlopez";
+    $scope.username = $localStorage.username;
     //GLOBAL VARIABLES
+
+    $scope.logout = function(){
+      AuthenticationService.Logout();
+    };
+    $scope.shoot = function () {
+        console.log($localStorage.username)
+    };
+
+
 
     $scope.uploadFile = function (file) {
 
@@ -52,7 +61,11 @@ app.controller('appController', ['$scope', '$http', 'ModalService', 'cloudinary'
             method: 'POST',
             url: basePath + '/user/' + $scope.username + '/' + itemName,
             data: $.param(item), //forms user object
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Bearer ' + $localStorage.token,
+                'Accept': 'application/json;odata=verbose'
+            }
         })
             .then(function (data) {
                 console.log(data.data);

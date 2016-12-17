@@ -1,14 +1,14 @@
-app.controller('Login.IndexController', function($location, AuthenticationService, $http, $localStorage) {
+app.controller('register.controller', function($location, AuthenticationService, $http, $localStorage) {
     var vm = this;
 
     vm.login = login;
 
-    initController();
-
-    function initController() {
-        // reset login status
-        AuthenticationService.Logout();
-    }
+    // initController();
+    //
+    // function initController() {
+    //     // reset login status
+    //     AuthenticationService.Logout();
+    // }
 
     vm.shoot = function () {
         var data = {
