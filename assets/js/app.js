@@ -1,5 +1,6 @@
 var app = angular.module("myApp", ['angularModalService', 'angular-cloudinary', 'tehwalris.file-selector', "ngRoute"]);
 
+
 app.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
