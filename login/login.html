@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <section id="about">
+        <div class="box col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
+            <div class="form-container">
+                <h1>Login</h1>
+                <form name="form" ng-submit="form.$valid && vm.login()" novalidate>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Username / Email</label>
+                                <input type="text" name="identifier" class="text-input defaultText"
+                                       ng-model="vm.identifier"
+                                       required/>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Password</label>
+                                <input type="password" name="password" class="text-input defaultText"
+                                       ng-model="vm.password"
+                                       required/>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <button ng-disabled="vm.loading" class="btn btn-primary">Login</button>
+                            </div>
+                            <div ng-if="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- /.form-container -->
+            </div>
+        </div>
+    </section>
+</div>
