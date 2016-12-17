@@ -3,6 +3,7 @@ app.factory('AuthenticationService', function ($http, $localStorage, $location) 
 
     service.Login = Login;
     service.Logout = Logout;
+    service.Register = Register;
 
     return service;
 
@@ -37,7 +38,37 @@ app.factory('AuthenticationService', function ($http, $localStorage, $location) 
             });
     }
 
+    function Register(email, username, password, callback){
+        var data = {
+            email: email,
+            username: username,
+            password: password
+        };
+        $http({
+            method: 'POST',
+            url: 'https://devpoint-api.herokuapp.com/auth/local/register',
+            data: $.param(data), //forms user object
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(function (response) {
+                console.log(response.data);
+                // login successful if there's a token in the response
+                if (response.data.token) {
+                    // store username and token in local storage to keep user logged in between page refreshes
+                    //$localStorage.currentUser = {username: username, token: response.data.token};
+                    $localStorage.username = response.data.username;
+                    $localStorage.token = response.data.token;
+                    // add jwt token to auth header for all requests made by the $http service
+                    //$http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
 
+                    // execute callback with true to indicate successful login
+                    callback(true);
+                } else {
+                    // execute callback with false to indicate failed login
+                    callback(false);
+                }
+            });
+    }
 
     function Logout() {
         // remove user from local storage and clear http auth header

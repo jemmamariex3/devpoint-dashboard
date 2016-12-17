@@ -69,8 +69,8 @@ app.run(function ($rootScope, $http, $location, $localStorage) {
         console.log(restrictedPage);
         console.log($location.path());
 
-        // if (restrictedPage && !$localStorage.token) {
-        //     $location.path('/login');
-        // }
+        if (restrictedPage && !$localStorage.token) {
+            $location.path('/login');
+        }
     });
 });

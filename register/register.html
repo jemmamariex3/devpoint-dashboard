@@ -8,9 +8,15 @@
                     <fieldset>
                         <div class="row">
                             <div class="col-sm-12">
-                                <label>Username / Email</label>
-                                <input type="text" name="identifier" class="text-input defaultText"
-                                       ng-model="vm.identifier"
+                                <label>Email</label>
+                                <input type="text" name="email" class="text-input defaultText"
+                                       ng-model="vm.email"
+                                       required/>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Username</label>
+                                <input type="text" name="username" class="text-input defaultText"
+                                       ng-model="vm.username"
                                        required/>
                             </div>
                             <div class="col-sm-12">
@@ -26,9 +32,9 @@
                                        required/>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <button ng-disabled="vm.loading" class="btn btn-primary">Login</button>
+                                <button class="btn btn-primary">Login</button>
                             </div>
-                            <div ng-if="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                            <div ng-if="vm.error" class="alert alert-danger">[[vm.error]]</div>
                         </div>
                     </fieldset>
                 </form>

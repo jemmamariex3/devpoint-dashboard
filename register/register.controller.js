@@ -10,31 +10,23 @@ app.controller('register.controller', function($location, AuthenticationService,
     //     AuthenticationService.Logout();
     // }
 
-    vm.shoot = function () {
-        var data = {
-            identifier: "jarellano01",
-            password: "password"
-        };
-        $http({
-            method: 'POST',
-            url: 'https://devpoint-api.herokuapp.com/auth/local',
-            data: $.param(data), //forms user object
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).then(function(response){
-            console.log(response);
-            $localStorage.test = response.data.token;
-        });
-    };
+
 
     function login() {
         vm.loading = true;
-        AuthenticationService.Login(vm.identifier, vm.password, function (result) {
-            if (result === true) {
-                $location.path('/');
-            } else {
-                vm.error = 'Username or password is incorrect';
-                vm.loading = false;
-            }
-        });
+        if(vm.password != vm.verifyPassword){
+            vm.error = "Passwords do not match"
+        }
+        else{
+            AuthenticationService.Register(vm.email, vm.username, vm.password, function (result) {
+                if (result === true) {
+                    $location.path('/');
+                } else {
+                    vm.error = 'Username or password is incorrect';
+                    vm.loading = false;
+                }
+            });
+        }
+
     }
 });
