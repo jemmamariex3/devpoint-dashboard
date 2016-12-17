@@ -2,8 +2,7 @@
     <section id="about">
         <div class="box col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
             <div class="form-container">
-                <h1>Login</h1>
-                <button ng-click="vm.shoot()">Shoot</button>
+                <h1>Register</h1>
                 <form name="form" ng-submit="form.$valid && vm.login()" novalidate>
                     <fieldset>
                         <div class="row">
@@ -32,7 +31,7 @@
                                        required/>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <button class="btn btn-primary">Login</button>
+                                <button class="btn btn-primary">Register</button>
                             </div>
                             <div ng-if="vm.error" class="alert alert-danger">[[vm.error]]</div>
                         </div>

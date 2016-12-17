@@ -9,6 +9,9 @@ app.controller('Login.IndexController', function($location, AuthenticationServic
         // reset login status
         AuthenticationService.Logout();
     }
+    vm.gotoregister = function(){
+        $location.path('/register');
+    };
 
     vm.shoot = function () {
         var data = {
